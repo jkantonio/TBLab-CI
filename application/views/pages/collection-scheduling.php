@@ -20,7 +20,7 @@
                         <h1>Last Name</h1><input class="form-control" type="text" name="LastName">
                         <h1>Embassy Code</h1><select name="EmbassyCode" class="form-control"><option value="undefined" selected="">Select Embassy</option><option value="AU">Australia</option><option value="CA">Canada</option><option value="NZ">New Zealand</option><option value="US">United States</option></select>
                         <tr>
-                            <td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="save" value="Save Data"/></td>
+                            <td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="add" value="Schedule Patient"/></td>
                         </tr>
                     </form>
                 </div>
