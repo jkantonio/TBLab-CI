@@ -10,23 +10,21 @@
 </head>
 
 <body>
-    <div class="modal fade" role="dialog" tabindex="-1">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Patient</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                <div class="modal-body">
-                    <p>The content of your modal.</p><input type="text"></div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
-            </div>
-        </div>
-    </div>
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 text-center">
-                    <header></header>
-                    <header></header>
+                <div class="col-md-6 offset-md-0 text-center">
+                    <form method="post">
+                        <h1>Schedule</h1><input class="form-control" type="date" name="ScheduledDate">
+                        <h1>First Name</h1><input class="form-control" type="text" name="FirstName">
+                        <h1>Last Name</h1><input class="form-control" type="text" name="LastName">
+                        <h1>Embassy Code</h1><select name="EmbassyCode" class="form-control"><option value="undefined" selected="">Select Embassy</option><option value="AU">Australia</option><option value="CA">Canada</option><option value="NZ">New Zealand</option><option value="US">United States</option></select>
+                        <tr>
+                            <td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="save" value="Save Data"/></td>
+                        </tr>
+                    </form>
+                </div>
+                <div class="col">
                     <h1>Queue</h1>
                     <div class="table-responsive">
                         <table class="table">
@@ -49,41 +47,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="btn-group" role="group"></div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col-md-12 offset-md-0"><input type="date" style="padding: 2px;"><button class="btn btn-primary" type="button" style="padding: 4px 20px;margin: 5px;">Search</button></div>
-                                <div class="col">
-                                    <h1>First Name</h1>
-                                </div>
-                            </div><input type="text"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h1>Last Name</h1>
-                                </div>
-                            </div><input type="text"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h1>Embassy Code</h1>
-                                </div>
-                                <div class="col-md-12 offset-md-0"><select><option value="undefined" selected="">Embassy Code</option><option value="AU">Australia</option><option value="CA">Canada</option><option value="NZ">New Zealand</option><option value="US">United States</option></select></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-5 offset-md-6"><button class="btn btn-primary" type="button">Add</button><button class="btn btn-primary" type="button">Remove</button></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
