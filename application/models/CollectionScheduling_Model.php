@@ -6,4 +6,4 @@ class CollectionScheduling_Model extends CI_Model
 		$query = "INSERT INTO collectionschedule VALUES ('$ScheduledDate', '$FirstName', '$LastName', '$EmbassyCode')";
 		$this->db->query($query);
 	}
-}
+}	
