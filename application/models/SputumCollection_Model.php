@@ -16,10 +16,13 @@ class SputumCollection_Model extends CI_Model
 	public function addSputumCollection()
 	{
 		$sputumDate = $this->input->post('sputumDate');
-		$empID = $this->input->post('employeeId');
-		$currentdate = date('Y-m-d H:i:s');
+		$tlogid = '';
+		$employeeid = 1;
+		$tlistid = 21;
+		//$empID = $this->input->post('employeeId');
+		//$currentdate = date('Y-m-d H:i:s');
 
-		$sql = "INSERT INTO Transactionlog(TransactionLogID,TransactionListID,EmployeeID,DateTimeOfTransaction) VALUES ('',1, 21, $sputumDate)";
+		$sql = "INSERT INTO Transactionlog(TransactionLogID,TransactionListID,EmployeeID,DateTimeOfTransaction) VALUES ('$tlogid','$employeeid', '$tlistid', '$sputumDate')";
 		$this->db->query($sql);
 		// Insert Sputum Request ID
 		// Insert Collection Start Date

@@ -55,19 +55,19 @@
                 <div class="col"><?php echo $post->NumberOfDaysCollection;?><label id="nodc" type="number"></div>
             </div>
             <?php }?>
-            <div class="row">
-                <div class="col-md-3">
-                    <p style="width: 90px;">Start Date:</p>
-                </div>
+
+            <form class="user" action="<?php echo base_url(); ?>SputumCollection/add" method="post">
+                <div class="row">
+                    <div class="col-md-3">
+                        <p style="width: 90px;">Start Date:</p>
+                    </div>
                 <!--
                     Fix EmployeeID with SESSION VARIABLE!!!!
                 -->
-                <div class="col">
-                    <input name="sputumDate" type="date">
-                    <input name="employeeId" type="text" value="21">
+                    <div class="col">
+                        <input name="sputumDate" type="date">
+                    </div>
                 </div>
-            </div>
-            <form class="user" action="<?php echo base_url(); ?>SputumCollection/add" method="post">
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
