@@ -14,38 +14,54 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 offset-md-0 text-center">
-                    <form>
-                        <h1>Schedule</h1><input class="form-control" type="date">
-                        <h1>First Name</h1><input class="form-control" type="text">
-                        <h1>Last Name</h1><input class="form-control" type="text">
-                        <h1>Embassy Code</h1><select class="form-control"><option value="undefined" selected="">Select Embassy</option><option value="AU">Australia</option><option value="CA">Canada</option><option value="NZ">New Zealand</option><option value="US">United States</option></select>
-                        <button
-                            class="btn btn-primary" type="button">Add</button>
-                    </form>
-                </div>
-                <div class="col">
-                    <h1>Queue</h1>
+                <div class="col-md-6 text-center">
+                    <div><input type="date"></div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Specimen Code</th>
+                                    <th>Patient ID</th>
                                     <th>Name</th>
-                                    <th>Status</th>
+                                    <th>Schedule Date</th>
+                                    <th>Time</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>US000001</td>
                                     <td>Rizal, Jose</td>
-                                    <td>Pending</td>
+                                    <td>10/7</td>
+                                    <td>8:00</td>
                                 </tr>
                                 <tr></tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Country Code</th>
+                                            <th>Column 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cell 1</td>
+                                            <td>Cell 2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cell 3</td>
+                                            <td>Cell 4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

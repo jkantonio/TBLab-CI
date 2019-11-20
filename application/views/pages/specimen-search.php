@@ -30,10 +30,10 @@
                     <h4>1. Home</h4>
                 </a>
                 <a href="#">
-                    <h4>2. Assign</h4>
+                    <h4>2. Library</h4>
                 </a>
                 <a href="#">
-                    <h4>3. Specimen Code</h4>
+                    <h4>3. Data</h4>
                 </a>
             </div>
         </div>
@@ -41,33 +41,34 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h4>Patient ID</h4>
+                <div class="col-md-6 offset-md-0">
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle text-left" data-toggle="dropdown" aria-expanded="false" type="button">Specimen Code</button>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Specimen Code</a><a class="dropdown-item" role="presentation" href="#">Patient ID</a><a class="dropdown-item" role="presentation" href="#">Last Name</a></div>
+                    </div>
                 </div>
-                <div class="col-md-6"><input type="text"></div>
+                <div class="col-md-6 offset-md-0"><input type="text"></div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <h4>Name</h4>
-                </div>
-                <div class="col-md-6">
-                    <p>Rizal, Jose</p>
-                </div>
+                <div class="col-md-6"><button class="btn btn-primary text-monospace" type="button">Search</button><button class="btn btn-primary" type="button">Clear</button></div>
+                <div class="col"></div>
             </div>
+        </div>
+    </div>
+    <div></div>
+    <div>
+        <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h4>Name</h4>
+                <div class="col-md-3">
+                    <h5>Patient ID</h5>
                 </div>
-                <div class="col-md-6">
-                    <p>Rizal, Jose</p>
+                <div class="col-md-3">
+                    <h5>Patient Name</h5>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>Specimen Code</h4>
+                <div class="col-md-3">
+                    <h5>Specimen Code</h5>
                 </div>
-                <div class="col-md-6">
-                    <p>MUI001A</p>
+                <div class="col-md-3">
+                    <h5>Date Collected</h5>
                 </div>
             </div>
         </div>
@@ -75,7 +76,18 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 offset-md-0"><button class="btn btn-primary" type="button">Assign</button></div>
+                <div class="col-md-3">
+                    <p>US000001</p>
+                </div>
+                <div class="col-md-3">
+                    <p>Rizal, Jose Protacio</p>
+                </div>
+                <div class="col-md-3">
+                    <p>MUI001A</p>
+                </div>
+                <div class="col-md-3">
+                    <p>10/07/2019</p>
+                </div>
             </div>
         </div>
     </div>
