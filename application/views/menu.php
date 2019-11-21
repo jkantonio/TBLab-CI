@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse text-center"
                 id="navcol-1">
                 <ul class="nav navbar-nav flex-grow-1 justify-content-between">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Menu</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url('menu');?>">Menu</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">Employee ID: <?php echo $userID;?></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url('main/logout');?>">Logout</a></li>
@@ -36,7 +36,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Pulmonary Evaluation</h4><a href="<?php echo base_url();?>spmc"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
+                    <h4 class="card-title">Pulmonary Evaluation</h4><a href="<?php echo base_url();?>pulmoeval"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
             </div>
         </div>
     </div>

@@ -15,8 +15,10 @@ class SputumCollection extends CI_controller
 
 	public function index()
 	{
-		$this->data['posts'] = $this->SputumCollection_Model->getPosts();
-		$this->load->view('pages/sputum-collection', $this->data);
+		$data['posts'] = $this->SputumCollection_Model->getPosts();
+		//check this
+		$data['userID'] = $this->session->userdata('userID');
+		$this->load->view('pages/sputum-collection', $data);
 	}
 
 	public function add()

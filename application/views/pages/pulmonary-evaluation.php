@@ -11,7 +11,20 @@
 </head>
 
 <body>
-    <div>
+    <nav class="navbar navbar-dark navbar-expand fixed-top bg-primary text-center" style="align-items: center;">
+        <div class="container"><a class="navbar-brand" href="#">TB LAB</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-center"
+                id="navcol-1">
+                <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url('menu');?>">Menu</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Employee ID: <?php echo $userID;?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url('main/logout');?>">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div style="margin: 0;margin-top: 70px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
