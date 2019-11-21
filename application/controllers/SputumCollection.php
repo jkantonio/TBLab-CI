@@ -1,5 +1,5 @@
 <?php
-class CollectionScheduling extends CI_controller
+class SputumCollection extends CI_controller
 {
 	public function __construct()
 	{
@@ -10,13 +10,24 @@ class CollectionScheduling extends CI_controller
 		$this->load->database();
 
 		// Load Model
-		$this->load->model('CollectionScheduling_Model');
+		$this->load->model('SputumCollection_Model');
 	}
 
 	public function index()
 	{
+		$this->data['posts'] = $this->SputumCollection_Model->getPosts();
+		$this->load->view('pages/sputum-collection', $this->data);
+	}
+
+	public function add()
+	{
+		$this->SputumCollection_Model->addSputumCollection();
+	}
+
+	public function search()
+	{
 		// Load View Form
-		$this->load->view('pages/collection-scheduling');
+		$this->load->view('pages/sputum-collection');
 
 		// Check Submit Button
 		if($this->input->post('add'))
@@ -28,7 +39,7 @@ class CollectionScheduling extends CI_controller
 			$embcode = $this->input->post('EmbassyCode');
 
 			// Call Save Records Method of CollectionScheduling_Model and pass VARS as parameters
-			$this->CollectionScheduling_Model->saverecords($date, $fn, $ln, $embcode);
+			$this->SputumCollection_Model->saverecords($date, $fn, $ln, $embcode);
 		}
 	}
 }
