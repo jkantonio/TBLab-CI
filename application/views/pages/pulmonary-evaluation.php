@@ -32,16 +32,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-lg-6 offset-lg-4">
-                    <p>Patient ID:&nbsp;<input type="text" style="height: 26px;margin-left: 8px;"><button class="btn btn-primary btn-sm" type="button" style="height: 36px;margin-left: 8px;">Search</button></p>
-                </div>
+                <div class="col-md-12 col-lg-6 offset-lg-4 d-flex flex-grow-0 justify-content-lg-start"><label style="margin-right: 12px;">Patient ID: </label>
+                    <form method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" style="width: 310px;" name="patient">
+                            <input class="btn btn-primary btn-sm" type="submit" name="searchPatientId" value="Search" id="searchBtn"></div>
+                        </div>
+                    </form>
             </div>
+            <?php foreach($results as $result){?>
             <div class="row">
                 <div class="col-md-12 col-lg-2 offset-lg-4">
                     <p>Specimen Code:&nbsp;</p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Paragraph</p>
+                    <p><?php echo $result->SpecimenCode; ?></p>
                 </div>
             </div>
             <div class="row">
@@ -49,9 +54,10 @@
                     <p>Name:</p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Paragraph</p>
+                    <p><?php echo $result->PatientFirstName." ".$result->PatientLastName; ?></p>
                 </div>
             </div>
+            <?php } ?>
             <div class="row">
                 <div class="col">
                     <h1 class="text-center">Pulmonary Evaluation Date</h1>
