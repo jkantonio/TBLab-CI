@@ -11,7 +11,7 @@ class SputumCollection_Model extends CI_Model
 		$this->db->where('patient.PatientId', $search);
 		$query = $this->db->get();
 		return $query->result();
-	}
+	}	
 
 	public function addSputumCollection()
 	{
