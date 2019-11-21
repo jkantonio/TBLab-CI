@@ -10,6 +10,10 @@
     </head>
     <body class="bg-gradient-primary">
         <div>
+            <h1>Welcome, <?php echo $userID;?></h1>
+            <a href="<?php echo base_url('main/logout');?>">Logout</a>
+
+            <h2>ASDFASDF</h2>
             <div class="container">
                 <div class="row">
                     <div class="col text-center" style="padding: 19px;"><a class="btn btn-primary text-center" role="button" style="width: 240px;height: 84px;" href="<?php echo base_url(); ?>specimen-assign">ASSIGN</a></div>
@@ -24,6 +28,7 @@
                     <div class="col text-center" style="padding: 19px;"><button class="btn btn-primary text-center" type="button" style="width: 240px;height: 84px;">EXIT</button></div>
                 </div>
             </div>
+            <?php echo anchor('Login/logout','logout');?>
         </div>
     </body>
 </html>
