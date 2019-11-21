@@ -30,13 +30,15 @@
                 <div class="col-md-2">
                     <p style="width: 50px;padding: 0px;">Name:</p>
                 </div>
-                <div class="col"><?php echo $post->PatientFirstName.' '. $post->PatientMiddleName.' '.$post->PatientLastName;?><label id="n" type="text"></div>
+                <div class="col">
+                    <?php echo $post->PatientFirstName.' '. $post->PatientMiddleName.' '.$post->PatientLastName;?>
+                    <label id="n" type="text"></label></div>
             </div>
             <div class="row">
                 <div class="col-md-2">
                     <p>Birthday:</p>
                 </div>
-                <div class="col-md-4"><?php echo $post->PatientBirthday;?><label id="bd" type="date"></div>
+                <div class="col-md-4"><?php echo $post->PatientBirthday;?><label id="bd" type="date"></label></div>
                 <div class="col-md-1">
                     <p>Sex</p>
                 </div>

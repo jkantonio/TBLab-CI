@@ -13,77 +13,68 @@
 <body>
     <div>
         <div class="container">
+            <form method="POST">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 offset-lg-3">
+                        <h1>Patient ID:&nbsp;</h1>
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="text" name="patientId" style="margin-top: 9px;">
+                        <input class="btn btn-primary" name="searchPatientId" type="submit" value="Search" style="margin-left: 12px;"></input></div>
+                </div>
+                <?php foreach($posts as $post){?>
+                <div class="row">
+                    <div class="col-md-2 col-lg-3 offset-lg-3">
+                        <p>Name:</p>
+                    </div>
+                    <div class="col-lg-4 offset-lg-0">
+                        <?php echo $post->PatientFirstName.' '. $post->PatientMiddleName.' '.$post->PatientLastName;?>
+                        <label id="n" type="text"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-lg-3 offset-lg-3">
+                        <p>Birthday:</p>
+                    </div>
+                    <div class="col-lg-4 offset-lg-0">
+                        <p>Paragraph</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-lg-3 offset-lg-3">
+                        <p>Sex:</p>
+                    </div>
+                    <div class="col-lg-4 offset-lg-0">
+                        <p>Paragraph</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-lg-3 offset-lg-3">
+                        <p># Of Days:</p>
+                    </div>
+                    <div class="col-lg-4 offset-lg-0">
+                        <p>Paragraph</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-lg-3 offset-lg-3">
+                        <p>Collection Type:</p>
+                    </div>
+                    <div class="col-lg-4 offset-lg-0">
+                        <p>Paragraph</p>
+                    </div>
+                </div>
+                <?php }?>
+            </form>
             <div class="row">
-                <div class="col-md-4">
-                    <h1>Patient ID:&nbsp;</h1>
+                <div class="col-md-2 col-lg-3 offset-lg-3">
+                    <p>Specimen Code:</p>
                 </div>
-                <div class="col"><input type="text" style="margin-top: 9px;"><button class="btn btn-primary" type="button" style="margin-left: 12px;">Search</button></div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Name:</p>
-                </div>
-                <div class="col">
-                    <p>Paragraph</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Birthday:</p>
-                </div>
-                <div class="col">
-                    <p>Paragraph</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-                    <p>Sex:</p>
-                </div>
-                <div class="col">
-                    <p>Paragraph</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Embassy</p>
-                </div>
-                <div class="col">
-                    <p>Paragraph</p>
-                </div>
+                <div class="col-lg-4 offset-lg-0"><input type="text"></div>
             </div>
         </div>
     </div>
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col">
-                            <p>SPECIMEN CODE</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <p># OF DAYS</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col">
-                            <p>COLLECTION TYPE</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4"><input type="text" style="margin-top: 20px;"></div>
-                <div class="col"><input type="text" style="margin-top: 20px;"></div>
-                <div class="col"><input type="text" style="margin-top: 20px;"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col"><button class="btn btn-primary" type="button" style="margin-top: 12px;margin-left: 31px;">Assign</button><button class="btn btn-primary" type="button" style="margin-top: 12px;margin-left: 36px;">Cancel</button></div>
+    <div class="col-lg-3 offset-lg-5"><button class="btn btn-primary" type="button" style="margin: 0px;margin-top: 0px;margin-left: -20px;">Assign</button><button class="btn btn-primary" type="button" style="margin-top: 0px;margin-left: 36px;">Cancel</button></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/chart.min.js"></script>
