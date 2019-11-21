@@ -2,7 +2,6 @@
 class SpecimenCodeAssign_Model extends CI_Model
 {
 
-	// Needed values are Patient Name, Patient Birthday, Patient Sex and Embassy
 	public function getPosts()
 	{
 		$search = $this->input->post('patientId');
@@ -14,29 +13,12 @@ class SpecimenCodeAssign_Model extends CI_Model
 		return $query->result();
 	}	
 
-	public function assignSpecimenCode()
+	public function addSpecimenCode()
 	{
-		// Assigning a Specimen Code
-	}
+		$specimenCode = $this->input->post('specimenCode');
 
-
-	public function addSputumCollection()
-	{
-		$sputumDate = $this->input->post('sputumDate');
-		$tlogid = '';
-		$employeeid = 1;
-		$tlistid = 21;
-		//$empID = $this->input->post('employeeId');
-		//$currentdate = date('Y-m-d H:i:s');
-
-		$sql = "INSERT INTO Transactionlog(TransactionLogID,TransactionListID,EmployeeID,DateTimeOfTransaction) VALUES ('$tlogid','$employeeid', '$tlistid', '$sputumDate')";
+		$sql = "INSERT INTO assigncode(SpecimenCode) VALUES ('USB0003A')";
 		$this->db->query($sql);
-		// Insert Sputum Request ID
-		// Insert Collection Start Date
-		// Insert Transaction Log ID
-			// Insert Transaction Log ID 
-				// Insert Employee ID
-					// Insert DateOfTransaction
 	}
 }	
 ?>

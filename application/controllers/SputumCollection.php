@@ -45,3 +45,4 @@ class SputumCollection extends CI_controller
 		}
 	}
 }
+?>
