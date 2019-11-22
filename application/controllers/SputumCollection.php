@@ -21,12 +21,13 @@ class SputumCollection extends CI_controller
 		$this->load->view('pages/sputum-collection', $data);
 	}
 
-	public function add()
-	{
+	public function add(){
+		$sputumDate = $this->input->post('sputumDate');
 		$this->SputumCollection_Model->addSputumCollection();
+		
 	}
 
-	public function search()
+ 	public function search()
 	{
 		// Load View Form
 		$this->load->view('pages/sputum-collection');

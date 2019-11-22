@@ -27,7 +27,13 @@ class PulmonaryEvaluation extends CI_controller{
         $date = $this->input->post('scheduledDate');
         $time = $this->input->post('scheduledTime');
         $sputumCollectionID = $this->input->post('sputumCollectionID');
-        $this->PulmonaryEvaluation_Model->setScheduleDate($date,$time,$sputumCollectionID);
+        $message = $this->PulmonaryEvaluation_Model->setScheduleDate($date,$time,$sputumCollectionID);
+        if($message == 'succesful'){
+            //put a message for succesful operation
+            $this->index();
+        }else{
+            $this->index();
+        }
         //call model function, pass parameters
     }
 }

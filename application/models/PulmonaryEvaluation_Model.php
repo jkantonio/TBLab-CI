@@ -42,6 +42,8 @@ class PulmonaryEvaluation_Model extends CI_Model
             'PulmonaryEvaluationTime' => $time
         );
         $this->db->insert('pulmonaryevaluationschedulelog', $data1);
+
+        return 'succesful';
     }
 }	
 ?>

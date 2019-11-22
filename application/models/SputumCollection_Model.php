@@ -15,21 +15,30 @@ class SputumCollection_Model extends CI_Model
 
 	public function addSputumCollection()
 	{
+		//updating the transaction log
+		$employeeID = $this->session->userdata('userID');
+        $currentdate = date('Y-m-d H:i:s');
+        $data = array(
+            'TransactionListID' => '1',
+            'EmployeeID' => $employeeID,
+            'DateTimeOfTransaction' => $currentdate
+        );
+		$this->db->insert('transactionlog', $data);
+		
+		//gettransaction log id from above
+		$query = $this->db->query("SELECT * FROM transactionlog ORDER BY TransactionLogID DESC");
+        $lastID = 0;
+        if ($query->num_rows() > 0){
+            $row = $query->row();
+            $lastID = $row->TransactionLogID;
+        }
+		
 		$sputumDate = $this->input->post('sputumDate');
-		$tlogid = '';
-		$employeeid = 1;
-		$tlistid = 21;
-		//$empID = $this->input->post('employeeId');
-		//$currentdate = date('Y-m-d H:i:s');
 
-		$sql = "INSERT INTO Transactionlog(TransactionLogID,TransactionListID,EmployeeID,DateTimeOfTransaction) VALUES ('$tlogid','$employeeid', '$tlistid', '$sputumDate')";
-		$this->db->query($sql);
-		// Insert Sputum Request ID
-		// Insert Collection Start Date
-		// Insert Transaction Log ID
-			// Insert Transaction Log ID 
-				// Insert Employee ID
-					// Insert DateOfTransaction
+		//update sputumcollectionschedulelog
+		//get sputumrequestid with passed patient id
+		//getcollectionstartdate from post
+
 	}
 
 
