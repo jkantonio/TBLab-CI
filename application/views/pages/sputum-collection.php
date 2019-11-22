@@ -90,6 +90,15 @@
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
+                        <button class="btn btn-primary" action="<?php
+require('C:\xampp\htdocs\tblab\application\third_party\fpdf\fpdf.php');
+
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->SetFont('Arial','B',16);
+$pdf->Cell(40,10,'Hello World!');
+$pdf->Output();
+?>style="margin: 12px; ?>">PRINT</button>
                     </div>
                 </div>
             </form>
