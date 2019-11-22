@@ -10,19 +10,90 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
 </head>
 
+            <!--
+
+            GENERATING SPECIMEN CODE
+
+            NEEDED REQUIREMENTS: 
+            USI00001A
+
+            US/AU/NZ/CA
+            -> sputumrequestlog.Embassy
+
+            I/R
+            -> sputumrequestlog.CollectionType
+            
+            00001, ...
+            -> sputumrequestlog.SputumRequestID
+            (search how to prepend 0s)
+
+            A/B/C
+            -> sputumrequestlog.NumberOfDaysCollection
+
+
+            -->
+
+<?php 
+
+$Embassy = "XX";
+$CollectionType = "Initial";
+$SputumRequestID = 00000;
+$NumberOfDaysCollection = 1;
+
+foreach($posts as $post){
+    $Embassy = $post->Embassy;
+    $CollectionType = $post->CollectionType;
+    $SputumRequestID = $post->SputumRequestID;
+    $NumberOfDaysCollection = $post->NumberOfDaysCollection;
+}
+
+$ct = '';
+$specimenCode = ' ';
+
+if ($CollectionType == 'Initial')
+{
+  $ct = 'I';
+}
+else
+{
+  $ct = 'R';
+}
+
+if ($NumberOfDaysCollection == 1)
+{
+    $collection = 'A';
+}
+else if ($NumberOfDaysCollection == 2)
+{
+    $collection = 'B';
+}
+else
+{
+    $collection = 'C';
+}
+
+
+$num = $SputumRequestID;
+$num_padded = sprintf("%05d", $num);
+
+$specimenCode = $Embassy .$ct . $num_padded .$collection;
+?>
+
 <body>
     <div>
         <div class="container">
             <form method="POST">
                 <div class="row">
                     <div class="col-md-4 col-lg-3 offset-lg-3">
-                        <h1>Patient ID:&nbsp;</h1>
+                        <h1>Patient ID:</h1>
                     </div>
                     <div class="col-lg-4">
-                        <input type="text" name="patientId" style="margin-top: 9px;">
-                        <input class="btn btn-primary" name="searchPatientId" type="submit" value="Search" style="margin-left: 12px;"></input></div>
+                        <input type="text" name="patientId" style="margin-top: 9px;"></input>
+                        <input class="btn btn-primary" name="searchPatientId" type="submit" value="Search" style="margin-left: 12px;"></input>
+                    </div>
                 </div>
-                <?php foreach($posts as $post){?>
+            </form>
+             <?php foreach($posts as $post){?>
                 <div class="row">
                     <div class="col-md-2 col-lg-3 offset-lg-3">
                         <p>Name:</p>
@@ -37,7 +108,8 @@
                         <p>Birthday:</p>
                     </div>
                     <div class="col-lg-4 offset-lg-0">
-                        <p>Paragraph</p>
+                        <?php echo $post->PatientBirthday;?>
+                        <label id="bd" type="text"></label>
                     </div>
                 </div>
                 <div class="row">
@@ -45,7 +117,8 @@
                         <p>Sex:</p>
                     </div>
                     <div class="col-lg-4 offset-lg-0">
-                        <p>Paragraph</p>
+                        <?php echo $post->PatientSex;?>
+                        <label id="sex" type="text"></label>
                     </div>
                 </div>
                 <div class="row">
@@ -53,7 +126,8 @@
                         <p># Of Days:</p>
                     </div>
                     <div class="col-lg-4 offset-lg-0">
-                        <p>Paragraph</p>
+                        <?php echo $post->NumberOfDaysCollection;?>
+                        <label id="numofdays" type="text"></label>
                     </div>
                 </div>
                 <div class="row">
@@ -61,20 +135,27 @@
                         <p>Collection Type:</p>
                     </div>
                     <div class="col-lg-4 offset-lg-0">
-                        <p>Paragraph</p>
+                        <?php echo $post->CollectionType;?>
+                        <label id="ct" type="text"></label>
                     </div>
                 </div>
                 <?php }?>
-            </form>
-            <div class="row">
-                <div class="col-md-2 col-lg-3 offset-lg-3">
-                    <p>Specimen Code:</p>
+            <form action="<?php echo base_url(); ?>SpecimenCodeAssign/add" method="post">
+                <div class="row">
+                    <div class="col-md-2 col-lg-3 offset-lg-3">
+                        <p>Specimen Code:</p>
+                    </div>
+                    <div class="col-lg-4 offset-lg-0">
+                        <input type="text" name="specimenCode" value="<?php echo $specimenCode;?>"></input>
+                    </div>
                 </div>
-                <div class="col-lg-4 offset-lg-0"><input type="text"></div>
-            </div>
+                <div class="col-lg-3 offset-lg-5">
+                    <input class="btn btn-primary" type="submit" value="Assign" style="margin: 0px;margin-top: 0px;margin-left: -20px;"></button>
+                    <button class="btn btn-primary" type="button" style="margin-top: 0px;margin-left: 36px;">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="col-lg-3 offset-lg-5"><button class="btn btn-primary" type="button" style="margin: 0px;margin-top: 0px;margin-left: -20px;">Assign</button><button class="btn btn-primary" type="button" style="margin-top: 0px;margin-left: 36px;">Cancel</button></div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/chart.min.js"></script>

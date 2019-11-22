@@ -38,7 +38,7 @@
                     </form>
                 </div>
             </div>
-             <?php foreach($posts as $post){?>
+            <?php foreach($posts as $post){?>
             <div class="row">
                 <div class="col-md-2">
                     <p style="width: 50px;padding: 0px;">Name:</p>
@@ -51,11 +51,15 @@
                 <div class="col-md-2">
                     <p>Birthday:</p>
                 </div>
-                <div class="col-md-4"><?php echo $post->PatientBirthday;?><label id="bd" type="date"></label></div>
+                <div class="col-md-4">
+                    <?php echo $post->PatientBirthday;?>
+                    <label id="bd" type="date"></label></div>
                 <div class="col-md-1">
                     <p>Sex</p>
                 </div>
-                <div class="col"><?php echo $post->PatientSex;?><label id="s" type="text"></div>
+                <div class="col">
+                    <?php echo $post->PatientSex;?>
+                    <label id="s" type="text"></div>
             </div>
             <div class="row">
                 <div class="col-md-3">
@@ -86,8 +90,6 @@
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
-                        <button class="btn btn-primary" type="button" style="margin: 12px;">EDIT</button>
-                        <button class="btn btn-primary" id="clearBtn" type="button" style="margin: 12px;">CLEAR</button>
                     </div>
                 </div>
             </form>

@@ -15,9 +15,16 @@ class SpecimenCodeAssign extends CI_controller
 
 	public function index()
 	{
-		//$this->data['posts'] = $this->SputumCollection_Model->getPosts();
-		//$this->load->view('pages/sputum-collection', $this->data);
-
-		$this->load->view('pages/specimen-code-assign');
+		$data['posts'] = $this->SpecimenCodeAssign_Model->getPosts();
+		//check this
+		$data['userID'] = $this->session->userdata('userID');
+		$this->load->view('pages/specimen-code-assign', $data);
 	}
+
+		public function add()
+	{
+		$this->SpecimenCodeAssign_Model->addSpecimenCode();
+	}
+
 }
+?>
