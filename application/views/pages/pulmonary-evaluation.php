@@ -40,7 +40,8 @@
                         </div>
                     </form>
             </div>
-            <?php foreach($results as $result){?>
+            <?php $sputumCollectionIDTemp=0;
+            foreach($results as $result){?>
             <div class="row">
                 <div class="col-md-12 col-lg-2 offset-lg-4">
                     <p>Specimen Code:&nbsp;</p>
@@ -57,32 +58,31 @@
                     <p><?php echo $result->PatientFirstName." ".$result->PatientLastName; ?></p>
                 </div>
             </div>
-            <?php } ?>
+            <?php $sputumCollectionIDTemp = $result->SputumCollectionID;
+                } ?>
             <div class="row">
                 <div class="col">
-                    <h1 class="text-center">Pulmonary Evaluation Date</h1>
+                    <h1 class="text-center">Schedule Date of Evaluation</h1>
                 </div>
             </div>
+            <form method="post" action="<?php echo base_url();?>pulmonaryevaluation/schedEvalDate">
             <div class="row">
                 <div class="col-lg-1 offset-lg-4">
                     <p>Date</p>
                 </div>
-                <div class="col offset-lg-0"><input type="date"></div>
+                <div class="col offset-lg-0"><input type="date" id="scheduledDate" name="scheduledDate"></div>
             </div>
+            <input type="hidden" name="sputumCollectionID" value="<?php echo $sputumCollectionIDTemp; ?>">
             <div class="row">
                 <div class="col-lg-1 offset-lg-4">
                     <p>Time:&nbsp;</p>
                 </div>
-                <div class="col">
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Select Time</button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">8:00</a><a class="dropdown-item" role="presentation" href="#">8:30</a><a class="dropdown-item" role="presentation" href="#">9:00</a><a class="dropdown-item" role="presentation"
-                                href="#">9:30</a><a class="dropdown-item" role="presentation" href="#">10:00</a></div>
-                    </div>
-                </div>
+                <div class="col"><select name="scheduledTime"><option value="800" selected="">8:00</option><option value="830">8:30</option><option value="900">9:00</option><option value="1100">11:00</option><option value="1300">13:00</option><option value="1330">13:30</option><option value="1500">15:00</option></select></div>
             </div>
             <div class="row">
-                <div class="col"><button class="btn btn-primary" type="button" style="margin-left: 328px;">ADD</button><button class="btn btn-primary" type="button" style="margin-left: 8px;">CANCEL</button><button class="btn btn-primary" type="button" style="margin-left: 8px;">PRINT</button></div>
+                <div class="col"><input class="btn btn-primary" type="submit" value="ADD" style="margin-left: 328px;"><button class="btn btn-primary" type="button" href="#" style="margin-left: 8px;">CANCEL</button><button class="btn btn-primary" type="button" style="margin-left: 8px;">PRINT</button></div>
             </div>
+            </form>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>

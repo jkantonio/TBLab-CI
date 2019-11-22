@@ -18,13 +18,17 @@ class PulmonaryEvaluation extends CI_controller{
         //call search function
         $data['results'] = $this->PulmonaryEvaluation_Model->getSpecimenCode();
         $data['userID'] = $this->session->userdata('userID');
-		$this->load->view('pages/pulmonary-evaluation', $data);
-        //store return values into data
-        //call view function and pass values
+        $this->load->view('pages/pulmonary-evaluation', $data);
     }
 
-    public function searchSpecimen(){
-
+    public function schedEvalDate(){
+        //get values from post
+        
+        $date = $this->input->post('scheduledDate');
+        $time = $this->input->post('scheduledTime');
+        $sputumCollectionID = $this->input->post('sputumCollectionID');
+        $this->PulmonaryEvaluation_Model->setScheduleDate($date,$time,$sputumCollectionID);
+        //call model function, pass parameters
     }
 }
 ?>
