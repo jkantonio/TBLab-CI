@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['spmc'] = 'SputumCollection';
 $route['sca'] = 'SpecimenCodeAssign';
+$route['Ctest'] = 'Ctest';
 $route['menu'] = 'Menu';
 $route['pulmoeval'] = 'PulmonaryEvaluation';
 $route['default_controller'] = 'main';
