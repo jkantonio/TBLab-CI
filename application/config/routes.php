@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
+$route['validate'] = 'Main/login_validation';
 $route['spmc'] = 'SputumCollection';
 $route['sca'] = 'SpecimenCodeAssign';
 $route['menu'] = 'Menu';

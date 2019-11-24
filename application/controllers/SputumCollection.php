@@ -15,15 +15,29 @@ class SputumCollection extends CI_controller
 
 	public function index()
 	{
-		$data['posts'] = $this->SputumCollection_Model->getPosts();
-		//check this
+		$row = $this->SputumCollection_Model->getPosts();
+		$data['patientID'] = $row['PatientID'];
+		$data['patientFN'] = $row['PatientFirstName'];
+		$data['patientMN'] = $row['PatientMiddleName'];
+		$data['patientLN'] = $row['PatientLastName'];
+		$data['bday'] = $row['PatientBirthday'];
+		$data['sex'] = $row['PatientSex'];
+		$data['colType'] = $row['CollectionType'];
+		$data['numDoC'] = $row['NumberOfDaysCollection'];
+		$data['reqBy'] = $row['RequestedBy'];
+		$data['dateSR'] = $row['DateOfSputumRequest'];
+
+
+
+
 		$data['userID'] = $this->session->userdata('userID');
 		$this->load->view('pages/sputum-collection', $data);
 	}
 
 	public function add(){
 		$sputumDate = $this->input->post('sputumDate');
-		$this->SputumCollection_Model->addSputumCollection();
+		$patientID = $this->input->post('patientID');
+		$this->SputumCollection_Model->addSputumCollection($sputumDate,$patientID);
 		
 	}
 

@@ -33,22 +33,31 @@
 
             -->
 
-<?php 
+<?php
 
 $Embassy = "XX";
-$CollectionType = "Initial";
 $SputumRequestID = 00000;
-$NumberOfDaysCollection = 1;
+$NumberOfDaysCollection = 'D';
+$CollectionType = "Initial";
+$patient = 0;
 
 foreach($posts as $post){
     $Embassy = $post->Embassy;
     $CollectionType = $post->CollectionType;
     $SputumRequestID = $post->SputumRequestID;
     $NumberOfDaysCollection = $post->NumberOfDaysCollection;
+    $patient = $post->PatientID; 
 }
 
 $ct = '';
 $specimenCode = ' ';
+$collectCount = '';
+
+if($collection != ''){
+    $collectCount = $collection;
+}else{
+    $collectCount = "D";
+}
 
 if ($CollectionType == 'Initial')
 {
@@ -59,28 +68,25 @@ else
   $ct = 'R';
 }
 
-if ($NumberOfDaysCollection == 1)
-{
-    $collection = 'A';
-}
-else if ($NumberOfDaysCollection == 2)
-{
-    $collection = 'B';
-}
-else
-{
-    $collection = 'C';
-}
-
-
 $num = $SputumRequestID;
 $num_padded = sprintf("%05d", $num);
-
-$specimenCode = $Embassy .$ct . $num_padded .$collection;
+$specimenCode = $Embassy .$ct . $num_padded .$collectCount;
 ?>
-
+<nav class="navbar navbar-dark navbar-expand fixed-top bg-primary text-center" style="align-items: center;">
+    <div class="container"><a class="navbar-brand" href="#">TB LAB</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse text-center"
+            id="navcol-1">
+            <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url('menu');?>">Menu</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#">Employee ID: <?php echo $userID;?></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url('main/logout');?>">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <body>
-    <div>
+    <div style="margin: 0;margin-top: 70px;">
         <div class="container">
             <form method="POST">
                 <div class="row">
@@ -93,7 +99,8 @@ $specimenCode = $Embassy .$ct . $num_padded .$collection;
                     </div>
                 </div>
             </form>
-             <?php foreach($posts as $post){?>
+             <?php foreach($posts as $post){
+            ?>
                 <div class="row">
                     <div class="col-md-2 col-lg-3 offset-lg-3">
                         <p>Name:</p>
@@ -147,6 +154,7 @@ $specimenCode = $Embassy .$ct . $num_padded .$collection;
                     </div>
                     <div class="col-lg-4 offset-lg-0">
                         <input type="text" name="specimenCode" value="<?php echo $specimenCode;?>"></input>
+                        <input type="hidden" name="patientID" value="<?php echo $patient;?>"></input>
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-5">

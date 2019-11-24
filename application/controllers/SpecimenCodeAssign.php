@@ -18,12 +18,14 @@ class SpecimenCodeAssign extends CI_controller
 		$data['posts'] = $this->SpecimenCodeAssign_Model->getPosts();
 		//check this
 		$data['userID'] = $this->session->userdata('userID');
+		$data['collection'] = $this->SpecimenCodeAssign_Model->countExistingSpecimen();
 		$this->load->view('pages/specimen-code-assign', $data);
 	}
 
-		public function add()
+	public function add()
 	{
-		$this->SpecimenCodeAssign_Model->addSpecimenCode();
+		$search = $this->input->post('patientID');
+		$this->SpecimenCodeAssign_Model->addSpecimenCode($search);
 	}
 
 }

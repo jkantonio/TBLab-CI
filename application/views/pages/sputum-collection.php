@@ -27,24 +27,29 @@
             </div>
         </div>
     </nav>
+    <?php
+        //declaring variables
+        $patientID = 0;
+
+    ?>
     <div style="margin: 0;margin-top: 70px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 offset-md-0">
                     <form method="POST">
                         <h1 style="font-size: 42px;">Patient ID:
-                            <input class="form-control-sm" name="patientId" id="patientId" type="text" style="margin: 10px;height: 35px;width: 182px;padding: 14px;"></input>
-                            <input class="btn btn-primary btn-sm" type="submit" name="searchPatientId" value="Search" style="margin: 10px;padding: 7px;width: 72px;" id="searchBtn"></input></h1>
+                            <input class="form-control-sm" name="patientID" id="patientID" type="text" style="margin: 10px;height: 35px;width: 182px;padding: 14px;"></input>
+                            <input class="btn btn-primary btn-sm" type="submit" name="searchPatientID" value="Search" style="margin: 10px;padding: 7px;width: 72px;" id="searchBtn"></input></h1>
                     </form>
                 </div>
             </div>
-            <?php foreach($posts as $post){?>
+
             <div class="row">
                 <div class="col-md-2">
                     <p style="width: 50px;padding: 0px;">Name:</p>
                 </div>
                 <div class="col">
-                    <?php echo $post->PatientFirstName.' '. $post->PatientMiddleName.' '.$post->PatientLastName;?>
+                    <?php echo $patientFN.' '. $patientMN.' '.$patientLN;?>
                     <label id="n" type="text"></label></div>
             </div>
             <div class="row">
@@ -52,39 +57,63 @@
                     <p>Birthday:</p>
                 </div>
                 <div class="col-md-4">
-                    <?php echo $post->PatientBirthday;?>
+                    <?php echo $bday;?>
                     <label id="bd" type="date"></label></div>
-                <div class="col-md-1">
+            </div>
+            <div class="row">
+                <div class="col-md-2">
                     <p>Sex</p>
                 </div>
-                <div class="col">
-                    <?php echo $post->PatientSex;?>
-                    <label id="s" type="text"></div>
+                <div class="col-md-4">
+                    <?php echo $sex;?>
+                    <label id="s" type="text">
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <p>Collection Type:</p>
                 </div>
-                <div class="col"><?php echo $post->CollectionType;?><label id="ct" type="text"></div>
+                <div class="col">
+                    <?php echo $colType;?>
+                    <label id="ct" type="text">
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <p>Number of Days Collection:</p>
                 </div>
-                <div class="col"><?php echo $post->NumberOfDaysCollection;?><label id="nodc" type="number"></div>
+                <div class="col">
+                    <?php echo $numDoC;?>
+                    <label id="nodc" type="number">
+                </div>
             </div>
-            <?php }?>
+            <div class="row">
+                <div class="col-md-2">
+                    <p>Requested By:</p>
+                </div>
+                <div class="col">
+                    <?php echo $reqBy;?>
+                    <label id="nodc" type="number">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <p>Date Requested:</p>
+                </div>
+                <div class="col">
+                    <?php echo $dateSR?>
+                    <label id="nodc" type="number">
+                </div>
+            </div>
 
             <form class="user" action="<?php echo base_url(); ?>SputumCollection/add" method="post">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <p style="width: 90px;">Start Date:</p>
                     </div>
-                <!--
-                    Fix EmployeeID with SESSION VARIABLE!!!!
-                -->
                     <div class="col">
                         <input name="sputumDate" type="date">
+                        <input name="patientID" type="hidden" value="<?php echo $patientID; ?>">
                     </div>
                 </div>
                 <div class="row">
