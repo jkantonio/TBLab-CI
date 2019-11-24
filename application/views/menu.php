@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     </head>
 
-<body>
+<body  style="margin-right: 120px;margin-left: 120px;margin-top: 92px;">
     <nav class="navbar navbar-dark navbar-expand fixed-top bg-primary text-center" style="align-items: center;">
         <div class="container"><a class="navbar-brand" href="#">TB LAB</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse text-center"

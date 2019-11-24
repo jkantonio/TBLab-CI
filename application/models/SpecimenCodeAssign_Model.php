@@ -27,15 +27,12 @@ class SpecimenCodeAssign_Model extends CI_Model
 	public function addSpecimenCode($search)
 	{	//search is returning nothing
 		//$search = $this->input->post('patientId');
-		//get SputumCollectionID\
+		//get SputumCollectionID
 		//not working because wala mahanap
-		$SputumCollectionID = 0;
-		$query = $this->db->query("SELECT sputumcollectionschedulelog.SputumCollectionID FROM sputumrequestlog INNER JOIN sputumcollectionschedulelog on sputumrequestlog.SputumRequestID = sputumcollectionschedulelog.SputumRequestID where sputumrequestlog.PatientID = '$search' ORDER BY sputumcollectionschedulelog.SputumCollectionID DESC");
-		if($query->num_rows() > 0){
-			$row = $query->row_array();
-			$row = $query->
-			$SputumCollectionID = $row->SputumCollectionID;
-		}
+		$query = $this->db->query("SELECT sputumcollectionschedulelog.SputumCollectionID FROM sputumcollectionschedulelog INNER JOIN sputumrequestlog on sputumrequestlog.SputumRequestID = sputumcollectionschedulelog.SputumRequestID where sputumrequestlog.PatientID = '$search' ORDER BY sputumcollectionschedulelog.SputumCollectionID DESC");
+		$row = $query->row();	
+		$SputumCollectionID = $row->SputumCollectionID;
+	
 
 		//updating the transaction log
 		$employeeID = $this->session->userdata('userID');

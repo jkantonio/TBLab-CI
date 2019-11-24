@@ -28,8 +28,7 @@
         </div>
     </nav>
     <?php
-        //declaring variables
-        $patientID = 0;
+        
 
     ?>
     <div style="margin: 0;margin-top: 70px;">
@@ -106,7 +105,7 @@
                 </div>
             </div>
 
-            <form class="user" method="post">
+            <form class="user" method="post" action="<?php echo base_url(); ?>SputumCollection/add">
                 <div class="row">
                     <div class="col-md-2">
                         <p style="width: 90px;">Start Date:</p>
@@ -118,8 +117,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-primary" action="<?php echo base_url(); ?>SputumCollection/add" type="submit" style="margin: 12px;">ADD</button>
-                        <button class="btn btn-primary" "" action="<?php echo base_url(); ?>SputumCollection/pdf"><a href="#Ctest">PRINT</a></button>
+                        <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
+                        <button class="btn btn-primary" action="<?php echo base_url(); ?>SputumCollection/pdf">PRINT</button>
                     </div>
                 </div>
             </form>
