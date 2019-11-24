@@ -11,7 +11,6 @@ class SputumCollection extends CI_controller
 
 		// Load Model
 		$this->load->model('SputumCollection_Model');
-		$this->load->library('Pdf');
 	}
 
 	public function index()
@@ -38,17 +37,6 @@ class SputumCollection extends CI_controller
 		$patientID = $this->input->post('patientID');
 		$this->SputumCollection_Model->addSputumCollection($sputumDate,$patientID);
 		$this->load->view('menu', $data);
-	}
-
-	public function pdf()
-	{
-	    $this->load->helper('pdf_helper');
-	    /*
-	        ---- ---- ---- ----
-	        your code here
-	        ---- ---- ---- ----
-	    */
-	    $this->load->view('pages/pdfreport', $data);
 	}
 }
 ?>
