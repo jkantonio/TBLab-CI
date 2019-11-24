@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <form class="user" action="<?php echo base_url(); ?>SputumCollection/add" method="post">
+            <form class="user" method="post">
                 <div class="row">
                     <div class="col-md-2">
                         <p style="width: 90px;">Start Date:</p>
@@ -118,7 +118,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
+                        <button class="btn btn-primary" action="<?php echo base_url(); ?>SputumCollection/add" type="submit" style="margin: 12px;">ADD</button>
+                        <button class="btn btn-primary" "" action="<?php echo base_url(); ?>SputumCollection/pdf"><a href="#Ctest">PRINT</a></button>
                     </div>
                 </div>
             </form>
