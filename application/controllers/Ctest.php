@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Ctest extends CI_Controller {
+
+class Ctest extends CI_Controller
+{
   
     function __construct()
     {
@@ -12,36 +14,20 @@ class Ctest extends CI_Controller {
         $this->create_pdf();
     }
   
-    public function create_pdf() {
-    //============================================================+
-    // File name   : example_001.php
-    //
-    // Description : Example 001 for TCPDF class
-    //               Default Header and Footer
-    //
-    // Author: Muhammad Saqlain Arif
-    //
-    // (c) Copyright:
-    //               Muhammad Saqlain Arif
-    //               PHP Latest Tutorials
-    //               http://www.phplatesttutorials.com/
-    //               saqlain.sial@gmail.com
-    //============================================================+
- 
-   
-  
+    public function create_pdf() 
+    {
     // create new PDF document
     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    
   
     // set document information
     $pdf->SetCreator(PDF_CREATOR);
-    $pdf->SetAuthor('Muhammad Saqlain Arif');
-    $pdf->SetTitle('TCPDF Example 001');
+    $pdf->SetAuthor('TBLab');
+    $pdf->SetTitle('TBLab Sputum Schedule');
     $pdf->SetSubject('TCPDF Tutorial');
     $pdf->SetKeywords('TCPDF, PDF, example, test, guide');   
   
     // set default header data
-    $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+    $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
     $pdf->setFooterData(array(0,64,0), array(0,64,128)); 
   
     // set header and footer fonts
@@ -88,10 +74,9 @@ class Ctest extends CI_Controller {
   
     // Set some content to print
     $html = <<<EOD
-    <h1>Welcome to <a href="http://www.tcpdf.org" style="text-decoration:none;background-color:#CC0000;color:black;">&nbsp;<span style="color:black;">TC</span><span style="color:white;">PDF</span>&nbsp;</a>!</h1>
-    <i>This is the first example of TCPDF library.</i>
-    <p>This text is printed using the <i>writeHTMLCell()</i> method but you can also use: <i>Multicell(), writeHTML(), Write(), Cell() and Text()</i>.</p>
-    <p>Please check the source code documentation and other examples for further information.</p>
+    <h1>TBLab Sputum Schedule</h1>
+
+    <p>Insert details on how to prepare for sputum collection: </p> 
      
 EOD;
   
@@ -109,6 +94,21 @@ EOD;
     //============================================================+
     }
 }
-  
+
+
+// class MYPDF extends TCPDF 
+// {
+//     public function Header()
+//     {
+//         // Logo
+//         $image_file = K_PATH_IMAGES.'logo_example.jpg';
+//         $this->Image($image_file, 10,10,15,'','JPG','','T',false,300,'',false,false,0,false,false,false);
+//         // Set font
+//         $this->SetFont('helvetica','B',20);
+//         // Title
+//         $this->Cell(0,15,'<< TCPDF EXAMPLE 003 >>', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+//     }
+
+// }
 /* End of file c_test.php */
 /* Location: ./application/controllers/c_test.php */
