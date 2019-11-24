@@ -27,16 +27,5 @@ class StartIncubation extends CI_controller
 		$sputumDate = $this->input->post('sputumDate');
 		$this->SputumCollection_Model->addSputumCollection();
 	}
-
-	public function pdf()
-	{
-	    $this->load->helper('pdf_helper');
-	    /*
-	        ---- ---- ---- ----
-	        your code here
-	        ---- ---- ---- ----
-	    */
-	    $this->load->view('pages/pdfreport', $data);
-	}
 }
 ?>

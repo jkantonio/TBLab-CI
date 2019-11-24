@@ -14,9 +14,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-5 offset-lg-1">
-                    <h1>Specimen Code:&nbsp;</h1>
+                    <h1>Specimen Code: </h1>
                 </div>
-                <div class="col"><input type="text" style="margin-top: 12px;"><button class="btn btn-primary btn-sm" type="button" style="margin-left: 16px;">Search</button></div>
+                <form method="post">
+                    <div class="col">
+                        <input type="text" name="specimenCode" id="specimenCode" style="margin-top: 12px;"></input>
+                        <input class="btn btn-primary btn-sm" type="submit" name="searchSpecimenCode" value="Search" id="searchBtn" style="margin-left: 16px;"></input>
+                    </div>
+                </form>
             </div>
             <div class="row">
                 <div class="col">
