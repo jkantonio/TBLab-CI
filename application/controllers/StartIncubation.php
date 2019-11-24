@@ -27,5 +27,12 @@ class StartIncubation extends CI_controller
 		$sputumDate = $this->input->post('sputumDate');
 		$this->SputumCollection_Model->addSputumCollection();
 	}
+
+
+	public function search()
+	{
+		$specimenCode = $this->input->post('specimenCode');
+		$this->StartIncubation_Model->searchSpecimenCode();
+	}
 }
 ?>

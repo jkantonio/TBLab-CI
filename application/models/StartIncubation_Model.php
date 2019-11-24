@@ -13,6 +13,18 @@ class StartIncubation_Model extends CI_Model
 		return $query->result();
 	}	
 
+	public function searchSpecimenCode()
+	{
+		$search = $this->input->post('specimenCode');
+		$this->db->select('*');
+		$this->db->from('assigncode');
+		$this->db->join('startincubation', 'assigncode.SpecimenCode = startincubation.SpecimenCode', 'LEFT');
+		$this->db->where('startincubation.SpecimenCode', $search);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
 	public function addSputumCollection()
 	{
 		//updating the transaction log
@@ -38,7 +50,6 @@ class StartIncubation_Model extends CI_Model
 		//update sputumcollectionschedulelog
 		//get sputumrequestid with passed patient id
 		//getcollectionstartdate from post
-
 	}
 
 
