@@ -41,8 +41,10 @@
                 <div class="col-lg-3">
                     <p>1.0 mcg/mL</p>
                 </div>
-                <div class="col-lg-2 offset-lg-1"><button class="btn btn-primary" type="button">SENSITIVE</button></div>
-                <div class="col-lg-2"><button class="btn btn-primary" type="button">RESISTANT</button></div>
+                <div class="col-lg-2 offset-lg-1">
+                    <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
+                <div class="col-lg-2">
+                    <input class="btn btn-primary" type="radio">RESISTANT</button></div>
             </div>
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
@@ -51,8 +53,10 @@
                 <div class="col-lg-3">
                     <p>0.1&nbsp;mcg/mL<br><br></p>
                 </div>
-                <div class="col-lg-2 offset-lg-1"><button class="btn btn-primary" type="button">SENSITIVE</button></div>
-                <div class="col-lg-2"><button class="btn btn-primary" type="button">RESISTANT</button></div>
+                    <div class="col-lg-2 offset-lg-1">
+                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
+                    <div class="col-lg-2">
+                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
             </div>
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
@@ -61,8 +65,10 @@
                 <div class="col-lg-3">
                     <p>1.0 mcg/mL<br><br></p>
                 </div>
-                <div class="col-lg-2 offset-lg-1"><button class="btn btn-primary" type="button">SENSITIVE</button></div>
-                <div class="col-lg-2"><button class="btn btn-primary" type="button">RESISTANT</button></div>
+                    <div class="col-lg-2 offset-lg-1">
+                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
+                    <div class="col-lg-2">
+                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
             </div>
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
@@ -71,8 +77,10 @@
                 <div class="col-lg-3">
                     <p>5.0 mcg/mL</p>
                 </div>
-                <div class="col-lg-2 offset-lg-1"><button class="btn btn-primary" type="button">SENSITIVE</button></div>
-                <div class="col-lg-2"><button class="btn btn-primary" type="button">RESISTANT</button></div>
+                    <div class="col-lg-2 offset-lg-1">
+                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
+                    <div class="col-lg-2">
+                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
             </div>
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
@@ -81,8 +89,10 @@
                 <div class="col-lg-3">
                     <p>100 mcg/mL</p>
                 </div>
-                <div class="col-lg-2 offset-lg-1"><button class="btn btn-primary" type="button">SENSITIVE</button></div>
-                <div class="col-lg-2"><button class="btn btn-primary" type="button">RESISTANT</button></div>
+                    <div class="col-lg-2 offset-lg-1">
+                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
+                    <div class="col-lg-2">
+                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
             </div>
             <div class="row" style="height: 42px;">
                 <div class="col"><button class="btn btn-primary" type="button" style="margin-left: 320px;">ADD</button><button class="btn btn-primary" type="button" style="margin-left: 5px;">CANCEL</button><button class="btn btn-primary" type="button" style="margin-left: 5px;">CLEAR</button></div>
