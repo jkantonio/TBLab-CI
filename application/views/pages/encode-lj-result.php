@@ -20,7 +20,10 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Specimen Code:&nbsp;<input type="text" style="width: 220px;height: 32px;"><button class="btn btn-primary btn-sm" type="button" style="margin-top: -6px;margin-left: 8px;">Button</button></h1>
+                    <h1>Specimen Code:&nbsp;
+                        <input type="text" style="width: 220px;height: 32px;"></input>
+                        <input class="btn btn-primary btn-sm" type="button" value="Search" style="margin-top: -6px;margin-left: 8px;"></input>
+                    </h1>
                 </div>
             </div>
             <div class="row">
