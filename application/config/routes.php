@@ -6,6 +6,7 @@ $route['spmc'] = 'SputumCollection';
 $route['sca'] = 'SpecimenCodeAssign';
 $route['Ctest'] = 'Ctest';
 $route['menu'] = 'Menu';
+$route['vemps'] = 'ViewEmployees';
 $route['pulmoeval'] = 'PulmonaryEvaluation';
 $route['si'] = 'StartIncubation';
 $route['eljr'] = 'EncodeLJResult';

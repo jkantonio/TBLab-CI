@@ -5,6 +5,6 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">View all Users</h4><a href="<?php echo base_url();?>sca"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>sca">   Go   </button></a></div>
+            <h4 class="card-title">View all Users</h4><a href="<?php echo base_url();?>vemps"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>sca">   Go   </button></a></div>
     </div>
 </div>
