@@ -26,6 +26,8 @@ class SpecimenCodeAssign extends CI_controller
 	{
 		$search = $this->input->post('patientID');
 		$this->SpecimenCodeAssign_Model->addSpecimenCode($search);
+		$data['userID'] = $this->session->userdata('userID');
+		$this->load->view('menu', $data);
 	}
 
 }

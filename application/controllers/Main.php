@@ -14,7 +14,9 @@ class Main extends CI_controller{
 	function enter(){
 		if($this->session->userdata('userID') != ''){
 			$data['userID'] = $this->session->userdata('userID');
-			$this->load->view("menu",$data);
+			$data['priv'] = $this->session->userdata('privilage');
+			//$this->load->view("menu",$data);
+			redirect(base_url() . 'menu');
 		}else{
 			redirect(base_url());
 		}
@@ -38,8 +40,13 @@ class Main extends CI_controller{
 			$this->load->model('Main_model');
 			if($this->Main_model->can_login($userID,$password)){
 				//we found a user
+				
+				//check what privilage
+				$row = $this->Main_model->check_priv($userID);
+				$privilage = $row->UserAccountType;
 				$session_data = array(
-					'userID' => $userID
+					'userID' => $userID,
+					'privilage' => $privilage
 				);
 				$this->session->set_userdata($session_data);
 				redirect(base_url() . 'main/enter');

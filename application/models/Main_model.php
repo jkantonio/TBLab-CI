@@ -14,5 +14,16 @@ class Main_Model extends CI_Model
             return false;
         }
     }
+
+    function check_priv($userID){
+        $this->db->select('*');
+        $this->db->where('EmployeeID',$userID);
+        $query = $this->db->get('users');
+
+        if($query->num_rows() > 0){
+            return $query->row();
+        }else{
+        }
+    }
 }
 ?>

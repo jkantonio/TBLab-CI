@@ -17,7 +17,7 @@
                 id="navcol-1">
                 <ul class="nav navbar-nav flex-grow-1 justify-content-between">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url('menu');?>">Menu</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">Employee ID: <?php echo $userID;?></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url('main/logout');?>">Logout</a></li>
                 </ul>
@@ -39,13 +39,32 @@
                     <h4 class="card-title">Pulmonary Evaluation</h4><a href="<?php echo base_url();?>pulmoeval"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
             </div>
         </div>
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Entering Smear</h4><a href="<?php echo base_url();?>es"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Start Incubation</h4><a href="<?php echo base_url();?>si"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>sca">   Go   </button></a></div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Encode LJ Result</h4><a href="<?php echo base_url();?>eljr"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
+            </div>
+        </div>
+        <div class="card-group">
+        <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Encode MGIT Result</h4><a href="<?php echo base_url();?>emgitr"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Drug Susceptibility Test</h4><a href="<?php echo base_url();?>dst"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Final Culture Result</h4><a href="<?php echo base_url();?>fcr"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>sca">   Go   </button></a></div>
+            </div>
+        </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
