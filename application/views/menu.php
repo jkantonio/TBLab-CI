@@ -38,7 +38,12 @@
                 <div class="card-body">
                     <h4 class="card-title">Pulmonary Evaluation</h4><a href="<?php echo base_url();?>pulmoeval"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Pulmonary Evaluation</h4><a href="<?php echo base_url();?>pulmoeval"><button class="btn btn-primary" type="button" href="<?php echo base_url();?>spmc">   Go   </button></a></div>
+            </div>
         </div>
+
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
