@@ -4,13 +4,13 @@ class EnteringSmear_Model extends CI_Model
 
 	public function getPosts()
 	{
-		$search = $this->input->post('patientId');
+		$search = $this->input->post('specimenCode');
 		$this->db->select('*');
-		$this->db->from('patient');
-		$this->db->join('sputumrequestlog', 'patient.PatientID = sputumrequestlog.PatientID', 'LEFT');
-		$this->db->where('patient.PatientId', $search);
+		$this->db->from('assigncode');
+		$this->db->join('smearresultlog', 'assigncode.SpecimenCode = smearresultlog.SpecimenCode', 'LEFT');
+		$this->db->where('assigncode.SpecimenCode', $search);
 		$query = $this->db->get();
-		return $query->result();
+		return $query->row_array();
 	}	
 }	
 ?>

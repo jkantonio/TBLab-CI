@@ -17,8 +17,21 @@
                 <div class="col-md-6">
                     <h1>Specimen Code:&nbsp;</h1>
                 </div>
-                <div class="col"><input type="text" style="margin-top: 12px;"><button class="btn btn-primary btn-sm" type="button" style="margin-left: 16px;">Search</button></div>
+                <form method="POST">
+                    <div class="col">
+                        <input type="text" name="specimenCode" style="margin-top: 12px;"></input>
+                        <input class="btn btn-primary btn-sm" name="searchSpecimenCode" type="submit" value="Search" style="margin-left: 16px;"></input>
+                    </div>
+                </form>
+            </div>  
+
+            <div class="row">
+                <div class="col-md-12 col-lg-2 offset-lg-4">
+                    <?php echo $patientFN.' '. $patientMN.' '.$patientLN;?>
+                    <label></label>
+                </div>
             </div>
+
             <div class="row">
                 <div class="col-md-6 offset-md-3"><button class="btn btn-primary" type="button" style="margin: 5px;">0</button><button class="btn btn-primary" type="button" style="margin: 5px;">+1</button><button class="btn btn-primary" type="button" style="margin: 5px;">+2</button>
                     <button

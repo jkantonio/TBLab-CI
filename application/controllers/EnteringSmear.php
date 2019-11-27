@@ -13,9 +13,15 @@ class EnteringSmear extends CI_controller
 		$this->load->model('EnteringSmear_Model');
 	}
 
-	public function index()
+    public function index()
 	{
-		$this->load->view('pages/entering-smear');
+		$row = $this->EnteringSmear_Model->getPosts();
+		$data['patientID'] = $row['PatientID'];
+		$data['patientFN'] = $row['PatientFirstName'];
+		$data['patientMN'] = $row['PatientMiddleName'];
+		$data['patientLN'] = $row['PatientLastName'];
+		$data['userID'] = $this->session->userdata('userID');
+        $this->load->view('pages/entering-smear', $data);
 	}
 }
 ?>
