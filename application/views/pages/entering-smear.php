@@ -34,29 +34,29 @@
 
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <button class="btn btn-primary" type="radio" name="smear" value="0" style="margin: 5px;">0</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="1" style="margin: 5px;">+1</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="2" style="margin: 5px;">+2</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="3" style="margin: 5px;">+3</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="4" style="margin: 5px;">+4</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="5" style="margin: 5px;">+5</button>
+                    <input class="btn btn-primary" type="radio" name="smear" value="0" style="margin: 5px;">0</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="1" style="margin: 5px;">+1</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="2" style="margin: 5px;">+2</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="3" style="margin: 5px;">+3</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="4" style="margin: 5px;">+4</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="5" style="margin: 5px;">+5</input>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-5 offset-md-4" style="margin-right: 0px;margin-left: 269px;">
-                    <button class="btn btn-primary" type="radio" name="smear" value="6" style="margin: 5px;">+6</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="7" style="margin: 5px;">+7</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="8" style="margin: 5px;">+8</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="9" style="margin: 5px;">+9</button>
+                    <input class="btn btn-primary" type="radio" name="smear" value="6" style="margin: 5px;">+6</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="7" style="margin: 5px;">+7</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="8" style="margin: 5px;">+8</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="9" style="margin: 5px;">+9</input>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-4 offset-md-5" style="margin-left: 268px;">
-                    <button class="btn btn-primary" type="radio" name="smear" value="1+" style="margin: 5px;">1+</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="2+" style="margin: 5px;">2+</button>
-                    <button class="btn btn-primary" type="radio" name="smear" value="3+" style="margin: 5px;">3+</button>
+                    <input class="btn btn-primary" type="radio" name="smear" value="1+" style="margin: 5px;">1+</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="2+" style="margin: 5px;">2+</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="3+" style="margin: 5px;">3+</input>
                 </div>
             </div>
 
