@@ -116,7 +116,6 @@
                         <div class="row">
                             <div class="col">
                                 <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
-                                <button class="btn btn-primary" action="<?php echo base_url(); ?>SputumCollection/pdf">PRINT</button>
                             </div>
                         </div>
                     </form>
