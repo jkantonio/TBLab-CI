@@ -18,11 +18,13 @@
                     <h1 class="text-center">Drug Susceptibility Test</h1>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <h1>Specimen Code:&nbsp;<input type="text" style="width: 335px;height: 32px;"><button class="btn btn-primary" type="button" style="margin-left: 14px;height: 34px;margin-top: -6px;">Search</button></h1>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12 col-lg-3">
                     <p>DRUG</p>
@@ -34,6 +36,7 @@
                     <p class="text-center">RESULT</p>
                 </div>
             </div>
+
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
                     <p>STREPTOMYCIN</p>
@@ -42,10 +45,13 @@
                     <p>1.0 mcg/mL</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
+                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="sensitive">SENSITIVE</button>
+                </div>
                 <div class="col-lg-2">
-                    <input class="btn btn-primary" type="radio">RESISTANT</button></div>
+                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="resistant">RESISTANT</button>
+                </div>
             </div>
+
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
                     <p>ISONIAZID</p>
@@ -53,11 +59,14 @@
                 <div class="col-lg-3">
                     <p>0.1&nbsp;mcg/mL<br><br></p>
                 </div>
-                    <div class="col-lg-2 offset-lg-1">
-                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
-                    <div class="col-lg-2">
-                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
+                <div class="col-lg-2 offset-lg-1">
+                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="sensitive">SENSITIVE</button>
+                </div>
+                <div class="col-lg-2">
+                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="resistant">RESISTANT</button>
+                </div>
             </div>
+
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
                     <p>RIFAMPICIN</p>
@@ -65,11 +74,14 @@
                 <div class="col-lg-3">
                     <p>1.0 mcg/mL<br><br></p>
                 </div>
-                    <div class="col-lg-2 offset-lg-1">
-                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
-                    <div class="col-lg-2">
-                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
+                <div class="col-lg-2 offset-lg-1">
+                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="sensitive">SENSITIVE</button>
+                </div>
+                <div class="col-lg-2">
+                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="resistant">RESISTANT</button>
+                </div>
             </div>
+
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
                     <p>ETHAMBUTOL</p>
@@ -77,11 +89,14 @@
                 <div class="col-lg-3">
                     <p>5.0 mcg/mL</p>
                 </div>
-                    <div class="col-lg-2 offset-lg-1">
-                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
-                    <div class="col-lg-2">
-                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
+                <div class="col-lg-2 offset-lg-1">
+                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="sensitive">SENSITIVE</button>
+                </div>
+                <div class="col-lg-2">
+                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="resistant">RESISTANT</button>
+                </div>
             </div>
+
             <div class="row" style="height: 42px;">
                 <div class="col-md-12 col-lg-3">
                     <p>P2A</p>
@@ -89,11 +104,14 @@
                 <div class="col-lg-3">
                     <p>100 mcg/mL</p>
                 </div>
-                    <div class="col-lg-2 offset-lg-1">
-                        <input class="btn btn-primary" type="radio">SENSITIVE</button></div>
-                    <div class="col-lg-2">
-                        <input class="btn btn-primary" type="radio">RESISTANT</button></div>
+                <div class="col-lg-2 offset-lg-1">
+                    <input class="btn btn-primary" type="radio" name="p2aResult" value="sensitive">SENSITIVE</button>
+                </div>
+                <div class="col-lg-2">
+                    <input class="btn btn-primary" type="radio" name="p2aResult" value="resistant">RESISTANT</button>
+                </div>
             </div>
+
             <div class="row" style="height: 42px;">
                 <div class="col"><button class="btn btn-primary" type="button" style="margin-left: 320px;">ADD</button><button class="btn btn-primary" type="button" style="margin-left: 5px;">CANCEL</button><button class="btn btn-primary" type="button" style="margin-left: 5px;">CLEAR</button></div>
             </div>
