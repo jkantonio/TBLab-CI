@@ -3,10 +3,8 @@ class ViewTransactions_Model extends CI_Model
 {
 
 	public function getTrans(){
-        $this->db->select('*');
-		$this->db->from('transactionlog');
-        $query = $this->db->get();
-        return $query->result();
+        $query1 = $this->db->query("SELECT * FROM transactionlog LEFT JOIN transactionlist on transactionlist.TransactionListID = transactionlog.TransactionListID");
+        return $query1->result();
     }
 }	
 ?>

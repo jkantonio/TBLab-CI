@@ -31,97 +31,123 @@
         
 
     ?>
-    <div style="margin: 0;margin-top: 70px;">
+    <div style="margin-top: 81px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 offset-md-0">
-                    <form method="POST">
-                        <h1 style="font-size: 42px;">Patient ID:
-                            <input class="form-control-sm" name="patientID" id="patientID" type="text" style="margin: 10px;height: 35px;width: 182px;padding: 14px;"></input>
-                            <input class="btn btn-primary btn-sm" type="submit" name="searchPatientID" value="Search" style="margin: 10px;padding: 7px;width: 72px;" id="searchBtn"></input></h1>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 offset-md-0">
+                            <form method="POST">
+                                <h1 style="font-size: 42px;">Patient ID:
+                                    <input class="form-control-sm" name="patientID" id="patientID" type="text" style="margin: 10px;height: 35px;width: 182px;padding: 14px;"></input>
+                                    <input class="btn btn-primary btn-sm" type="submit" name="searchPatientID" value="Search" style="margin: 10px;padding: 7px;width: 72px;" id="searchBtn"></input></h1>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p style="width: 50px;padding: 0px;">Name:</p>
+                        </div>
+                        <div class="col">
+                            <?php echo $patientFN.' '. $patientMN.' '.$patientLN;?>
+                            <label id="n" type="text"></label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Birthday:</p>
+                        </div>
+                        <div class="col-md-4">
+                            <?php echo $bday;?>
+                            <label id="bd" type="date"></label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Sex</p>
+                        </div>
+                        <div class="col-md-4">
+                            <?php echo $sex;?>
+                            <label id="s" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Collection Type:</p>
+                        </div>
+                        <div class="col">
+                            <?php echo $colType;?>
+                            <label id="ct" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Number of Days Collection:</p>
+                        </div>
+                        <div class="col">
+                            <?php echo $numDoC;?>
+                            <label id="nodc" type="number">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Requested By:</p>
+                        </div>
+                        <div class="col">
+                            <?php echo $reqBy;?>
+                            <label id="nodc" type="number">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Date Requested:</p>
+                        </div>
+                        <div class="col">
+                            <?php echo $dateSR?>
+                            <label id="nodc" type="number">
+                        </div>
+                    </div>
+
+                    <form class="user" method="post" action="<?php echo base_url(); ?>SputumCollection/add">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p style="width: 90px;">Start Date:</p>
+                            </div>
+                            <div class="col">
+                                <input name="sputumDate" type="date">
+                                <input name="patientID" type="hidden" value="<?php echo $patientID; ?>">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
+                                <button class="btn btn-primary" action="<?php echo base_url(); ?>SputumCollection/pdf">PRINT</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-2">
-                    <p style="width: 50px;padding: 0px;">Name:</p>
-                </div>
-                <div class="col">
-                    <?php echo $patientFN.' '. $patientMN.' '.$patientLN;?>
-                    <label id="n" type="text"></label></div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Birthday:</p>
-                </div>
-                <div class="col-md-4">
-                    <?php echo $bday;?>
-                    <label id="bd" type="date"></label></div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Sex</p>
-                </div>
-                <div class="col-md-4">
-                    <?php echo $sex;?>
-                    <label id="s" type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Collection Type:</p>
-                </div>
-                <div class="col">
-                    <?php echo $colType;?>
-                    <label id="ct" type="text">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Number of Days Collection:</p>
-                </div>
-                <div class="col">
-                    <?php echo $numDoC;?>
-                    <label id="nodc" type="number">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Requested By:</p>
-                </div>
-                <div class="col">
-                    <?php echo $reqBy;?>
-                    <label id="nodc" type="number">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <p>Date Requested:</p>
-                </div>
-                <div class="col">
-                    <?php echo $dateSR?>
-                    <label id="nodc" type="number">
-                </div>
-            </div>
-
-            <form class="user" method="post" action="<?php echo base_url(); ?>SputumCollection/add">
-                <div class="row">
-                    <div class="col-md-2">
-                        <p style="width: 90px;">Start Date:</p>
-                    </div>
-                    <div class="col">
-                        <input name="sputumDate" type="date">
-                        <input name="patientID" type="hidden" value="<?php echo $patientID; ?>">
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Scheduled for Collection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cell 1</td>
+                                    <td>Cell 2</td>
+                                </tr>
+                                <tr>
+                                    <td>Cell 3</td>
+                                    <td>Cell 4</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <button class="btn btn-primary" type="submit" style="margin: 12px;">ADD</button>
-                        <button class="btn btn-primary" action="<?php echo base_url(); ?>SputumCollection/pdf">PRINT</button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
     <script type='text/javascript'>
