@@ -21,8 +21,7 @@ class SputumCollection_Model extends CI_Model
         $currentdate = date('Y-m-d H:i:s');
         $data = array(
             'TransactionListID' => '1',
-            'EmployeeID' => $employeeID,
-            'DateTimeOfTransaction' => $currentdate
+            'EmployeeID' => $employeeID
         );
 		$this->db->insert('transactionlog', $data);
 		

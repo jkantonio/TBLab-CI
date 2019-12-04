@@ -29,7 +29,7 @@
             <tr>
                 <th>Transaction ID</th>
                 <th>Employee ID</th>
-                <th>Command &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</th>
+                <th>Action</th>
                 <th>Date and Time of Transaction</th>
             </tr>
         </thead>
@@ -38,7 +38,7 @@
             <tr>
                 <td><?php echo $tran->TransactionLogID ?></td>
                 <td><?php echo $tran->EmployeeID ?></td>
-                <td><?php echo $tran->TransactionListID ?></td>
+                <td><?php echo $tran->TransactionName ?></td>
                 <td><?php echo $tran->DateTimeOfTransaction ?></td>
             </tr>
             <?php } ?>

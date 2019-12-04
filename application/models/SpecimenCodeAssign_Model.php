@@ -10,6 +10,11 @@ class SpecimenCodeAssign_Model extends CI_Model
 		return $query->result();
 	}
 
+	public function getNumScheduled(){
+		//accept a date
+		//return a numb, how many is scheduled for that date
+	}
+
 	public function countExistingSpecimen(){
 		$search = $this->input->post('patientId');
 		$query = $this->db->query("SELECT * FROM sputumrequestlog INNER JOIN sputumcollectionschedulelog on sputumrequestlog.SputumRequestID = sputumcollectionschedulelog.SputumRequestID INNER JOIN assigncode ON assigncode.SputumCollectionID = sputumcollectionschedulelog.SputumCollectionID where sputumrequestlog.PatientID = '$search'");
@@ -32,15 +37,16 @@ class SpecimenCodeAssign_Model extends CI_Model
 		$query = $this->db->query("SELECT sputumcollectionschedulelog.SputumCollectionID FROM sputumcollectionschedulelog INNER JOIN sputumrequestlog on sputumrequestlog.SputumRequestID = sputumcollectionschedulelog.SputumRequestID where sputumrequestlog.PatientID = '$search' ORDER BY sputumcollectionschedulelog.SputumCollectionID DESC");
 		$row = $query->row();	
 		$SputumCollectionID = $row->SputumCollectionID;
-	
+		
+		$now = new DateTime();
+		$now->setTimezone(new DateTimezone('Asia/Manila'));
+		$now->format('Y-m-d');
 
 		//updating the transaction log
 		$employeeID = $this->session->userdata('userID');
-        $currentdate = date('Y-m-d');
         $data = array(
             'TransactionListID' => '2',
-            'EmployeeID' => $employeeID,
-            'DateTimeOfTransaction' => $currentdate
+            'EmployeeID' => $employeeID
         );
 		$this->db->insert('transactionlog', $data);
 		
@@ -57,7 +63,7 @@ class SpecimenCodeAssign_Model extends CI_Model
 		$data1 = array(
 			'SpecimenCode' => $specimenCode,
 			'SputumCollectionID' => $SputumCollectionID,
-			'DateCollected' => $currentdate,
+			'DateCollected' => $now->format('Y-m-d'),
 			'TransactionLogID' => $lastID
 		);
 		$this->db->insert('assigncode', $data1);
