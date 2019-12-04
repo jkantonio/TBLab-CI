@@ -32,19 +32,33 @@
                 <div class="col-lg-2 offset-lg-4">
                     <p>Date:&nbsp;</p>
                 </div>
-                <div class="col-lg-4 offset-lg-0"><input type="date"></div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check text-right"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">LJ</label></div>
-                </div>
-                <div class="col">
-                    <div class="form-check text-left"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">MGIT</label></div>
+                <div class="col-lg-4 offset-lg-0">
+                    <input type="date">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-4 offset-lg-2"><button class="btn btn-primary text-center" type="button" style="margin-left: 235px;margin-right: 0;">Save</button></div>
-                <div class="col-lg-2"><button class="btn btn-primary" type="button" style="margin-left: -6px;">Cancel</button></div>
+                <div class="col">
+                    <div class="form-check text-right">
+                        <input class="form-check-input" type="radio" name="incubationType" id="formCheck-1">
+                            <label class="form-check-label" for="formCheck-1">LJ</label>
+                        </input>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check text-left">
+                        <input class="form-check-input" type="radio" name="incubationType" id="formCheck-2">
+                            <label class="form-check-label" for="formCheck-2">MGIT</label>
+                        </input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 offset-lg-2">
+                    <button class="btn btn-primary text-center" type="button" style="margin-left: 235px;margin-right: 0;">Save</button>
+                </div>
+                <div class="col-lg-2">
+                    <button class="btn btn-primary" type="button" style="margin-left: -6px;">Cancel</button>
+                </div>
             </div>
         </div>
     </div>

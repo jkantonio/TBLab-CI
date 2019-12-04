@@ -33,29 +33,53 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 offset-md-3"><button class="btn btn-primary" type="button" style="margin: 5px;">0</button><button class="btn btn-primary" type="button" style="margin: 5px;">+1</button><button class="btn btn-primary" type="button" style="margin: 5px;">+2</button>
-                    <button
-                        class="btn btn-primary" type="button" style="margin: 5px;">+3</button><button class="btn btn-primary" type="button" style="margin: 5px;">+4</button><button class="btn btn-primary" type="button" style="margin: 5px;">+5</button></div>
-            </div>
-            <div class="row">
-                <div class="col-md-5 offset-md-4" style="margin-right: 0px;margin-left: 218px;"><button class="btn btn-primary" type="button" style="margin: 5px;">+6</button><button class="btn btn-primary" type="button" style="margin: 5px;">+7</button><button class="btn btn-primary" type="button" style="margin: 5px;">+8</button>
-                    <button
-                        class="btn btn-primary" type="button" style="margin: 5px;">+9</button>
+                <div class="col-md-6 offset-md-3">
+                    <button class="btn btn-primary" type="radio" name="smear" value="0" style="margin: 5px;">0</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="1" style="margin: 5px;">+1</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="2" style="margin: 5px;">+2</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="3" style="margin: 5px;">+3</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="4" style="margin: 5px;">+4</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="5" style="margin: 5px;">+5</button>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-md-4 offset-md-5" style="margin-left: 241px;"><button class="btn btn-primary" type="button" style="margin: 5px;">1+</button><button class="btn btn-primary" type="button" style="margin: 5px;">2+</button><button class="btn btn-primary" type="button" style="margin: 5px;">3+</button></div>
+                <div class="col-md-5 offset-md-4" style="margin-right: 0px;margin-left: 269px;">
+                    <button class="btn btn-primary" type="radio" name="smear" value="6" style="margin: 5px;">+6</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="7" style="margin: 5px;">+7</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="8" style="margin: 5px;">+8</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="9" style="margin: 5px;">+9</button>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-4 offset-md-5" style="margin-left: 268px;">
+                    <button class="btn btn-primary" type="radio" name="smear" value="1+" style="margin: 5px;">1+</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="2+" style="margin: 5px;">2+</button>
+                    <button class="btn btn-primary" type="radio" name="smear" value="3+" style="margin: 5px;">3+</button>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col">
                     <p class="text-right">Smear Result Date:&nbsp;</p>
                 </div>
-                <div class="col"><input type="date" style="margin-top: 0px;"></div>
+
+                <div class="col">
+                    <input type="date" style="margin-top: 0px;">
+                </div>
             </div>
+
             <div class="row">
-                <div class="col-md-6"><button class="btn btn-primary text-center" type="button" style="margin-left: 248px;">Save</button></div>
-                <div class="col"><button class="btn btn-primary" type="button">Cancel</button></div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary text-center" type="button" style="margin-left: 269px;">Save</button>
+                </div>
+
+                <div class="col">
+                    <button class="btn btn-primary" type="button">Cancel</button>
+                </div>
             </div>
+            
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>

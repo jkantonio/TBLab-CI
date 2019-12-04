@@ -18,11 +18,13 @@
                     <h1 class="text-center">FINAL CULTURE RESULT</h1>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <h1>Specimen Code:&nbsp;<input type="text" style="width: 220px;height: 32px;"><button class="btn btn-primary btn-sm" type="button" style="margin-top: -6px;margin-left: 8px;">Button</button></h1>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-2 col-lg-4 offset-md-3 offset-lg-2">
                     <div class="row">
@@ -45,21 +47,29 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-md-2 offset-md-3"><button class="btn btn-primary" type="button">NEGATIVE</button></div>
-                <div class="col-md-2 offset-md-1"><button class="btn btn-primary" type="button">POSITIVE</button></div>
+                <div class="col-md-2 offset-md-3">
+                    <input class="btn btn-primary" type="radio" name="finalcultureResult">NEGATIVE</input>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <input class="btn btn-primary" type="radio" name="finalcultureResult">POSITIVE</input>
+                </div>
             </div>
+
             <div class="row">
                 <div class="col-md-3 offset-md-3">
                     <p>Date Reported:&nbsp;</p>
                 </div>
                 <div class="col"><input type="date"></div>
             </div>
+
             <div class="row">
                 <div class="col">
                     <div class="btn-group" role="group" style="margin-left: 330px;padding: 0px;"><button class="btn btn-primary" type="button">SAVE</button><button class="btn btn-primary" type="button">CANCEL</button><button class="btn btn-primary" type="button">CLEAR</button></div>
                 </div>
             </div>
+
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
