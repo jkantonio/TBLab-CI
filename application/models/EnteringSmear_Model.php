@@ -7,7 +7,9 @@ class EnteringSmear_Model extends CI_Model
 		$search = $this->input->post('specimenCode');
 		$this->db->select('*');
 		$this->db->from('assigncode');
-		$this->db->join('smearresultlog', 'assigncode.SpecimenCode = smearresultlog.SpecimenCode', 'LEFT');
+		$this->db->join('sputumcollectionschedulelog', 'sputumcollectionschedulelog.sputumcollectionid = assigncode.sputumcollectionid');
+		$this->db->join('sputumrequestlog', 'sputumrequestlog.SputumRequestID = sputumcollectionschedulelog.SputumRequestID');
+		$this->db->join('patient', 'patient.patientID = sputumrequestlog.patientID');
 		$this->db->where('assigncode.SpecimenCode', $search);
 		$query = $this->db->get();
 		return $query->row_array();

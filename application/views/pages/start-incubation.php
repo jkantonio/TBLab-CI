@@ -10,15 +10,30 @@
 </head>
 
 <body>
-    <div>
+    <nav class="navbar navbar-dark navbar-expand fixed-top bg-primary text-center" style="align-items: center;">
+        <div class="container"><a class="navbar-brand" href="#">TB LAB</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-center"
+                id="navcol-1">
+                <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url('menu');?>">Menu</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><?php echo $priv; ?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Employee ID: <?php echo $userID;?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url('main/logout');?>">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div style="margin: 0;margin-top: 70px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-5 offset-lg-1">
-                    <h1>Specimen Code: </h1>
+                    <h2>Enter Specimen Code: </h2>
+                    <h4>Specimen Code: <?php echo $specimenCode; ?></h4>
+                    <h4>Patient ID: <?php echo $patientID; ?></h4>
                 </div>
                 <form method="post">
                     <div class="col">
-                        <input type="text" name="specimenCode" id="specimenCode" style="margin-top: 12px;"></input>
+                        <input type="text" name="specimenCode" id="specimenCode" style="margin-top: 12px;" required></input>
                         <input class="btn btn-primary btn-sm" type="submit" name="searchSpecimenCode" value="Search" id="searchBtn" style="margin-left: 16px;"></input>
                     </div>
                 </form>
@@ -28,38 +43,48 @@
                     <h1 class="text-center">Start Incubation:</h1>
                 </div>
             </div>
+            <form method="post" action="<?php echo base_url(); ?>StartIncubation/start" name="add">
             <div class="row">
                 <div class="col-lg-2 offset-lg-4">
-                    <p>Date:&nbsp;</p>
+                    <p>Date: </p>
                 </div>
                 <div class="col-lg-4 offset-lg-0">
-                    <input type="date">
+                    <input type="date" name="dateProcessed" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="form-check text-right">
-                        <input class="form-check-input" type="radio" name="incubationType" id="formCheck-1">
+                        <input class="form-check-input" type="radio" name="incubationType" value="MGIT" id="formCheck-1" required>
+                            <label class="form-check-label" for="formCheck-1">MGIT</label>
+                        </input>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check text-center">
+                        <input class="form-check-input" type="radio" name="incubationType" value="LJ" id="formCheck-1" required>
                             <label class="form-check-label" for="formCheck-1">LJ</label>
                         </input>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-check text-left">
-                        <input class="form-check-input" type="radio" name="incubationType" id="formCheck-2">
-                            <label class="form-check-label" for="formCheck-2">MGIT</label>
+                        <input class="form-check-input" type="radio" name="incubationType" value="Both" id="formCheck-3" required>
+                            <label class="form-check-label" for="formCheck-3">Both</label>
                         </input>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-4 offset-lg-2">
-                    <button class="btn btn-primary text-center" type="button" style="margin-left: 235px;margin-right: 0;">Save</button>
+                    <input type="hidden" value="<?php echo $specimenCode; ?>" name="specCode">
+                    <input class="btn btn-primary text-center" type="submit" style="margin-left: 235px;margin-right: 0;" value="Start">
                 </div>
                 <div class="col-lg-2">
                     <button class="btn btn-primary" type="button" style="margin-left: -6px;">Cancel</button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>

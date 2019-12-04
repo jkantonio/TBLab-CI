@@ -11,49 +11,60 @@
 </head>
 
 <body>
-    <div>
+    <nav class="navbar navbar-dark navbar-expand fixed-top bg-primary text-center" style="align-items: center;">
+        <div class="container"><a class="navbar-brand" href="#">TB LAB</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-center"
+                id="navcol-1">
+                <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url('menu');?>">Menu</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Employee ID: <?php echo $userID;?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url('main/logout');?>">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div style="margin-top: 81px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h1>Specimen Code:&nbsp;</h1>
+                <div class="col-md-4 offset-lg-2">
+                    <h2>Specimen Code</h2>
                 </div>
                 <form method="POST">
-                    <div class="col">
                         <input type="text" name="specimenCode" style="margin-top: 12px;"></input>
                         <input class="btn btn-primary btn-sm" name="searchSpecimenCode" type="submit" value="Search" style="margin-left: 16px;"></input>
-                    </div>
                 </form>
-            </div>  
+            </div>
 
             <div class="row">
-                <div class="col-md-12 col-lg-2 offset-lg-4">
-                    <?php echo $patientFN.' '. $patientMN.' '.$patientLN;?>
-                    <label></label>
+                <div class="col-md-12 col-lg-6 offset-lg-4">
+                    <h4>Patient ID: <?php echo $patientID;?></h4>
+                    <h4>Specimen Code: <?php echo $specimenCode; ?></h4>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <input class="btn btn-primary" type="radio" name="smear" value="0" style="margin: 5px;">0</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="1" style="margin: 5px;">+1</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="2" style="margin: 5px;">+2</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="3" style="margin: 5px;">+3</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="4" style="margin: 5px;">+4</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="5" style="margin: 5px;">+5</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="0" style="margin: 5px;"> 0</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+1" style="margin: 5px;">+1</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+2" style="margin: 5px;">+2</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+3" style="margin: 5px;">+3</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+4" style="margin: 5px;">+4</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+5" style="margin: 5px;">+5</input>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-5 offset-md-4" style="margin-right: 0px;margin-left: 269px;">
-                    <input class="btn btn-primary" type="radio" name="smear" value="6" style="margin: 5px;">+6</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="7" style="margin: 5px;">+7</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="8" style="margin: 5px;">+8</input>
-                    <input class="btn btn-primary" type="radio" name="smear" value="9" style="margin: 5px;">+9</input>
+                <div class="col-md-6 offset-md-3">
+                    <input class="btn btn-primary" type="radio" name="smear" value="+6" style="margin: 5px;">+6</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+7" style="margin: 5px;">+7</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+8" style="margin: 5px;">+8</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="+9" style="margin: 5px;">+9</input>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-4 offset-md-5" style="margin-left: 268px;">
+                <div class="col-md-6 offset-md-3">
                     <input class="btn btn-primary" type="radio" name="smear" value="1+" style="margin: 5px;">1+</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="2+" style="margin: 5px;">2+</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="3+" style="margin: 5px;">3+</input>

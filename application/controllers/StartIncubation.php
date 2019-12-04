@@ -15,24 +15,23 @@ class StartIncubation extends CI_controller
 
 	public function index()
 	{
-		//$data['posts'] = $this->StartIncubation_Model->getPosts();
-		//check this
-		//$data['userID'] = $this->session->userdata('userID');
-		//$this->load->view('pages/start-incubation', $data);
-		$this->load->view('pages/start-incubation');
+		$row = $this->StartIncubation_Model->getPosts();
+		$data['specimenCode'] = $row['SpecimenCode'];
+		$data['patientID'] = $row['PatientID'];
+		$data['userID'] = $this->session->userdata('userID');
+		$data['priv'] = $this->session->userdata('privilage');
+		if($this->input->post('add')){
+			$this->start();
+		}else{
+			$this->load->view('pages/start-incubation', $data);
+		}
 	}
 
-	public function add()
-	{
-		$sputumDate = $this->input->post('sputumDate');
-		$this->SputumCollection_Model->addSputumCollection();
-	}
-
-
-	public function search()
-	{
-		$specimenCode = $this->input->post('specimenCode');
-		$this->StartIncubation_Model->searchSpecimenCode();
+	public function start(){
+		$this->StartIncubation_Model->add();
+		$data['userID'] = $this->session->userdata('userID');
+        $data['priv'] = $this->session->userdata('privilage');
+		$this->load->view('menu',$data);
 	}
 }
 ?>

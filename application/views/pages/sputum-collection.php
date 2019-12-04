@@ -27,10 +27,6 @@
             </div>
         </div>
     </nav>
-    <?php
-        
-
-    ?>
     <div style="margin-top: 81px;">
         <div class="container">
             <div class="row">
@@ -138,10 +134,6 @@
                                 <tr>
                                     <td>Cell 1</td>
                                     <td>Cell 2</td>
-                                </tr>
-                                <tr>
-                                    <td>Cell 3</td>
-                                    <td>Cell 4</td>
                                 </tr>
                             </tbody>
                         </table>
