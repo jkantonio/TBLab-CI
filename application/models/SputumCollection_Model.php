@@ -50,18 +50,5 @@ class SputumCollection_Model extends CI_Model
         );
 		$this->db->insert('sputumcollectionschedulelog', $data1);
 	}
-
-	/**
-	function query()
-	{
-		//SQL COMMAND
-
-		SELECT concat(p.PatientFirstName,' ',p.PatientLastName) AS "Patient Name", p.PatientBirthday AS "Birthday", 
-		 p.PatientSex AS "Sex", s.Embassy as "Embassy", s.CollectionType AS "Collection Type", 
-		s.NumberOfDaysCollection AS "# of Days", s.SputumRequestID AS "Sputum Request ID"
-		FROM SputumRequestLog AS s, Patient AS p
-		WHERE s.PatientID = p.PatientID And s.PatientID = 1484444 and s.RequestStatus = "Pending"
-	}
-	**/
 }	
 ?>
