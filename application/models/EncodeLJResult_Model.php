@@ -14,5 +14,36 @@ class EncodeLJResult_Model extends CI_Model
 		$query = $this->db->get();
 		return $query->row_array();
 	}	
+
+	public function inputData(){
+		//updating the transaction log
+		$employeeID = $this->session->userdata('userID');
+		$data = array(
+			'TransactionListID' => '7',
+			'EmployeeID' => $employeeID
+		);
+		$this->db->insert('transactionlog', $data);
+		
+		//gettransaction log id from above
+		$query = $this->db->query("SELECT * FROM transactionlog ORDER BY TransactionLogID DESC");
+		$lastID = 0;
+		if ($query->num_rows() > 0){
+			$row = $query->row();
+			$lastID = $row->TransactionLogID;
+		}
+
+		$dateProc = $this->input->post('dateReported');
+		$result = $this->input->post('LJresult');
+		$specimenCode = $this->input->post('specCode');
+
+		$data1 = array(
+			'SpecimenCode' => $specimenCode,
+			'LJFinalResult' => $result,
+			'LJFinalResultDate' => $dateProc,
+			'TransactionLogID' => $lastID
+		);
+		$this->db->insert('ljfinalresultlog', $data1);
+
+	}
 }	
 ?>

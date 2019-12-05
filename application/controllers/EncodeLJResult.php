@@ -24,6 +24,7 @@ class EncodeLJResult extends CI_controller
 	}
 
 	public function add(){
+		$this->EncodeLJResult_Model->inputData();
 		$data['userID'] = $this->session->userdata('userID');
 		$data['priv'] = $this->session->userdata('privilage');
 		$this->load->view('menu',$data);

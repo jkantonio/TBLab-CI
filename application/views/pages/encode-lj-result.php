@@ -61,13 +61,14 @@
                     <input class="btn btn-primary" type="radio" name="LJresult" value="positive" required>POSITIVE</input>
                 </div>
             </div>
+            <input type="hidden" value="<?php echo $specimenCode; ?>" name="specCode">
 
             <div class="row">
                 <div class="col-md-3 offset-md-3">
                     <p>Date Reported:&nbsp;</p>
                 </div>
                 <div class="col">
-                    <input type="date" name="date reported" required></input>
+                    <input type="date" name="dateReported" required></input>
                 </div>
             </div>
 
