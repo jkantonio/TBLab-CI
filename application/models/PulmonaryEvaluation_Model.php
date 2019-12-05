@@ -1,12 +1,25 @@
 <?php
 class PulmonaryEvaluation_Model extends CI_Model
 {
+    public function getPosts()
+    {
+        $search = $this->input->post('patient');
+        $this->db->select('*');
+        $this->db->from('patient');
+        $this->db->join('sputumrequestlog', 'patient.PatientID = sputumrequestlog.PatientID', 'LEFT');
+        $this->db->where('patient.PatientID', $search);
+        $this->db->order_by('sputumrequestlog.SputumRequestId', 'DESC');
+        $query = $this->db->get();
+        return $query->row_array();
+    }   
 
 	public function getSpecimenCode(){
         $search = $this->input->post('patient');
         $this->db->select('assigncode.SpecimenCode');
         $this->db->select('patient.PatientFirstName');
+        $this->db->select('patient.PatientMiddleName');
         $this->db->select('patient.PatientLastName');
+        $this->db->select('patient.PatientID');
         $this->db->select('assigncode.SputumCollectionID');
 		$this->db->from('patient');
         $this->db->join('sputumrequestlog', 'patient.PatientID = sputumrequestlog.PatientID', 'RIGHT');

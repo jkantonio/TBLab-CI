@@ -1,38 +1,22 @@
 <div>
-	<p>SPUTUM EXAMINATION REQUEST FORM</p>
-	<br><br>
+        Name: ".$PatientFN . " ".$PatientMN. " ".$PatientLN." Gender: ".$sex." Date Scheduled: ".$sputumDate."
+        Patient ID: ".$patientID." Embassy: ".$embassy."
 
-	<div>
-		Name:                 Age / Gender:         Date Scheduled: 
-	</div>
+    <div>
+        Please come personally for sputum examination for three successive 
+        mornings on the dates indicated below. Report promptly from 
+        6:00 AM to 8:00 AM only. Please do not take your breakfast. 
+        Only water is allowed.
+    </div>
 
-	<div>
-		Patient ID:                                       Embassy: 
-	</div>
+    <div>
+        Tardiness or failure to complete the three days collection 
+        would mean repetition of the series with additional fees 
+        to be charged. Please bring your passport.
+    </div>
 
-	<br>
-	<br>
+    <div>COLLECTION DATES ON: November 25 - 27, 2019</div>
 
-	<div>
-		<div>      Please come personally for sputum examination for three successive mornings on the dates
-		</div> <div>indicated below. Report promptly from 6:00 AM to 8:00 AM only. Please do not take your breakfast.</div>
-		<div>Only water is allowed.                                                               </div> <br><br>
-	</div>
-
-	<div>
-		<div>       Tardiness or failure to complete the three days collection would mean repetition of the series</div> <div>with additional fees to be charged. Please bring your passport.                                </div>
-	</div>
-
-	<br>
-	<br>
-
-	<div>COLLECTION DATES ON: November 25 - 27, 2019                          </div>
-
-	<br>
-	<br>
-	<br>
-	<br>
-
-	<div>________________________             ________________________</div>
-	<div>Applicant Signature                       Lab Representative</div>
-</div>
+    <div>________________________             ________________________</div>
+    Applicant Signature                 Lab Representative</div>
+    </div>

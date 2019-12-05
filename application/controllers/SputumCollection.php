@@ -47,11 +47,11 @@ class SputumCollection extends CI_controller
 		$sputumDate = $this->input->post('sputumDate');
 		$patientID = $this->input->post('patientID');
 		$this->SputumCollection_Model->addSputumCollection($sputumDate,$patientID);
-		$this->generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $dateSR, $patientID, $embassy);
+		$this->generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $sputumDate, $patientID, $embassy);
 		$this->load->view('spmc', $data);
 	}
 
-	public function generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $dateSR, $patientID, $embassy)
+	public function generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $sputumDate, $patientID, $embassy)
 	{
 		// Load PDF Library
 		$this->load->library('SputumPdf');
@@ -108,7 +108,7 @@ class SputumCollection extends CI_controller
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
     // Set some content to print
     $html = "<div>
-		Name: ".$PatientFN . " ".$PatientMN. " ".$PatientLN." Gender: ".$sex." Date Scheduled: ".$dateSR."
+		Name: ".$PatientFN . " ".$PatientMN. " ".$PatientLN." Gender: ".$sex." Date Scheduled: ".$sputumDate."
 		Patient ID: ".$patientID." Embassy: ".$embassy."
 
 	<div>
@@ -137,7 +137,7 @@ Applicant Signature                 Lab Representative</div>
   
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
-    $pdf->Output('SputumExaminationRequestForm', 'I');
+    $pdf->Output("Sputum Examination Request Patient " .$patientID. " Form", 'D');
 	exit();  
   
 
