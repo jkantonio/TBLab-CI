@@ -55,7 +55,7 @@
                     <p>Name:</p>
                 </div>
                 <div class="col-lg-4">
-                    <p><?php echo $result->PatientFirstName." ".$result->PatientLastName; ?></p>
+                    <p><?php echo $result->PatientFirstName." " .$result->PatientMiddleName." ".$result->PatientLastName; ?></p>
                 </div>
             </div>
             <?php $sputumCollectionIDTemp = $result->SputumCollectionID;
@@ -90,7 +90,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col"><input class="btn btn-primary" type="submit" value="ADD" style="margin-left: 328px;"><button class="btn btn-primary" type="button" href="#" style="margin-left: 8px;">CANCEL</button><button class="btn btn-primary" type="button" style="margin-left: 8px;">PRINT</button></div>
+                <div class="col">
+                    <input class="btn btn-primary" type="submit" value="ADD" style="margin-left: 328px;">
+                </div>
             </div>
             </form>
         </div>

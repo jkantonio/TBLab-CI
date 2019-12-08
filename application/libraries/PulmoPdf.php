@@ -4,7 +4,7 @@ if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 require_once dirname(__FILE__) . '/tcpdf/tcpdf.php';
 
-class Pdf extends TCPDF { 
+class PulmoPdf extends TCPDF { 
     function __construct() { 
         parent::__construct(); 
     }
@@ -14,7 +14,7 @@ class Pdf extends TCPDF {
         // Set font
         $this->SetFont('helvetica', 'B', 20);
         // Title
-        $this->Cell(0, 15, 'Sputum Examination Request Form', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 15, 'Pulmonary Evaluation Slip', 0, false, 'C', 0, '', 0, false, 'M', 'M');
     }
 
     // Page footer
