@@ -130,10 +130,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php for($i=0, $count = count($dates);$i<$count;$i++) {
+                                    $date  = $dates[$i];
+                                    $sched = $scheds[$i];
+                                ?>
+
                                 <tr>
-                                    <td>Cell 1</td>
-                                    <td>Cell 2</td>
+                                    <td><?php echo $date; ?></td>
+                                    <td><?php echo $sched; ?></td>
                                 </tr>
+
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

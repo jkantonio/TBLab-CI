@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2019 at 06:45 AM
+-- Generation Time: Dec 05, 2019 at 09:32 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -55,7 +55,8 @@ CREATE TABLE `assigncode` (
 --
 
 INSERT INTO `assigncode` (`SpecimenCode`, `SputumCollectionID`, `DateCollected`, `TransactionLogID`, `WithSmearResult`, `WithMGITFinalResult`, `withLJFinalResult`, `withFinalCultureResult`, `withMGITWorkup`, `withLJWorkUp`, `MGITRedigested`, `LJRedigested`, `WithDST`, `WithGenexpert`, `Cancelled`, `ShowInReport`, `Locked`, `UserNotes`, `ReportRemarks`) VALUES
-('USI00001A', 1, '2019-11-25', 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '');
+('USI00001A', 21, '2019-12-03', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
+('USI00001B', 21, '2019-12-04', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -182,6 +183,15 @@ CREATE TABLE `dstresultlog` (
   `WorkupRequestID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `dstresultlog`
+--
+
+INSERT INTO `dstresultlog` (`DSTResultLogID`, `Streptomycin`, `Isoniazid`, `Rifampicin`, `Ethambutol`, `Pyrazinamide`, `DSTReportDate`, `EmployeeID`, `TransactionLogID`, `WorkupRequestID`) VALUES
+(1, 'sensitive', 'sensitive', 'sensitive', NULL, 'sensitive', '2018-11-04', 21, 17, 1),
+(2, 'resistant', 'resistant', 'resistant', NULL, 'resistant', '2019-12-12', 21, 18, 1),
+(3, 'sensitive', 'resistant', 'sensitive', 'sensitive', 'sensitive', '2019-12-18', 21, 19, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -223,6 +233,13 @@ CREATE TABLE `ljfinalresultlog` (
   `TransactionLogID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ljfinalresultlog`
+--
+
+INSERT INTO `ljfinalresultlog` (`LJFinalResultLogID`, `SpecimenCode`, `LJFinalResult`, `LJFinalResultDate`, `TransactionLogID`) VALUES
+(1, 'USI00001A', 'contaminat', '2019-12-12', 13);
+
 -- --------------------------------------------------------
 
 --
@@ -236,6 +253,13 @@ CREATE TABLE `mgitfinalresultlog` (
   `MGITFinalResultDate` date DEFAULT NULL,
   `TransactionLogID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mgitfinalresultlog`
+--
+
+INSERT INTO `mgitfinalresultlog` (`MGITFinalResultLogID`, `SpecimenCode`, `MGITFinalResult`, `MGITFinalResultDate`, `TransactionLogID`) VALUES
+(1, 'USI00001A', 'contaminat', '2019-12-10', 14);
 
 -- --------------------------------------------------------
 
@@ -285,13 +309,7 @@ CREATE TABLE `pulmonaryevaluationschedulelog` (
 --
 
 INSERT INTO `pulmonaryevaluationschedulelog` (`PulmonaryEvaluationID`, `SputumCollectionID`, `PulmonaryEvaluationDate`, `PulmonaryEvaluationTime`, `TransactionLogID`) VALUES
-(1, 1, NULL, '800', 12),
-(2, 1, NULL, '800', 13),
-(3, 1, NULL, '1330', 14),
-(4, 1, NULL, '800', 15),
-(5, 1, '2019-11-25', '800', 16),
-(6, 1, '2019-11-26', '800', 17),
-(7, 1, '2019-11-26', '800', 19);
+(7, 21, '2019-12-11', '800', 7);
 
 -- --------------------------------------------------------
 
@@ -351,7 +369,9 @@ CREATE TABLE `sputumcollectionschedulelog` (
 --
 
 INSERT INTO `sputumcollectionschedulelog` (`SputumCollectionID`, `SputumRequestID`, `CollectionStartDate`, `TransactionLogID`, `CollectionStatus`) VALUES
-(1, 8, '2019-11-18', 1, 'Pending');
+(21, 1, '2019-12-05', 1, ''),
+(22, 8, '2019-12-12', 2, ''),
+(23, 8, '2019-12-05', 3, '');
 
 -- --------------------------------------------------------
 
@@ -399,6 +419,15 @@ CREATE TABLE `startincubation` (
   `HasMGIT` tinyint(1) DEFAULT NULL,
   `TransactionLogID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `startincubation`
+--
+
+INSERT INTO `startincubation` (`StartIncubationID`, `SpecimenCode`, `SampleProcessedOn`, `HasLJ`, `HasMGIT`, `TransactionLogID`) VALUES
+(1, 'USI00001A', '2019-12-19', 0, 0, 9),
+(2, 'USI00001B', '2019-12-12', 0, 1, 10),
+(3, 'USI00001A', '2019-12-11', 1, 0, 11);
 
 -- --------------------------------------------------------
 
@@ -479,20 +508,23 @@ CREATE TABLE `transactionlog` (
 --
 
 INSERT INTO `transactionlog` (`TransactionLogID`, `TransactionListID`, `EmployeeID`, `DateTimeOfTransaction`) VALUES
-(1, 1, 168, '2019-11-19 20:38:00'),
-(6, 1, 21, '2019-11-22 16:00:00'),
-(8, 1, 21, '2019-11-19 16:00:00'),
-(9, 1, 21, '0000-00-00 00:00:00'),
-(10, 1, 21, '0000-00-00 00:00:00'),
-(11, 1, 21, '0000-00-00 00:00:00'),
-(12, 3, NULL, '2019-11-21 21:33:15'),
-(13, 3, 21, '2019-11-21 21:34:49'),
-(14, 3, 21, '2019-11-21 21:35:05'),
-(15, 3, 21, '2019-11-21 21:38:36'),
-(16, 3, 21, '2019-11-21 21:40:37'),
-(17, 3, 21, '2019-11-21 21:43:51'),
-(18, 1, 21, '2019-11-25 16:00:00'),
-(19, 3, 21, '2019-11-21 21:47:42');
+(3, 1, 21, '2019-12-03 16:10:10'),
+(4, 2, 21, '2019-12-02 16:00:00'),
+(5, 2, 21, '2019-12-03 16:16:20'),
+(6, 2, 21, '2019-12-03 16:17:30'),
+(7, 3, 21, '2019-12-03 09:18:28'),
+(8, 4, 21, '2019-12-04 08:40:46'),
+(9, 4, 21, '2019-12-04 08:42:17'),
+(10, 4, 21, '2019-12-04 08:43:03'),
+(11, 4, NULL, '2019-12-04 16:23:47'),
+(12, 7, 21, '2019-12-04 17:34:32'),
+(13, 7, 21, '2019-12-04 17:35:24'),
+(14, 6, 21, '2019-12-04 17:47:51'),
+(15, 11, 21, '2019-12-04 18:31:31'),
+(16, 11, 21, '2019-12-04 18:34:11'),
+(17, 11, 21, '2019-12-04 18:36:01'),
+(18, 11, 21, '2019-12-04 18:38:25'),
+(19, 11, 21, '2019-12-04 18:39:10');
 
 -- --------------------------------------------------------
 
@@ -751,7 +783,7 @@ ALTER TABLE `cultureznsmearlog`
 -- AUTO_INCREMENT for table `dstresultlog`
 --
 ALTER TABLE `dstresultlog`
-  MODIFY `DSTResultLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `DSTResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `genexpertresultlog`
@@ -763,13 +795,13 @@ ALTER TABLE `genexpertresultlog`
 -- AUTO_INCREMENT for table `ljfinalresultlog`
 --
 ALTER TABLE `ljfinalresultlog`
-  MODIFY `LJFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `LJFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `mgitfinalresultlog`
 --
 ALTER TABLE `mgitfinalresultlog`
-  MODIFY `MGITFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `MGITFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pulmonaryevaluationschedulelog`
@@ -793,7 +825,7 @@ ALTER TABLE `smearresultlog`
 -- AUTO_INCREMENT for table `sputumcollectionschedulelog`
 --
 ALTER TABLE `sputumcollectionschedulelog`
-  MODIFY `SputumCollectionID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `SputumCollectionID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `sputumrequestlog`
@@ -805,7 +837,7 @@ ALTER TABLE `sputumrequestlog`
 -- AUTO_INCREMENT for table `startincubation`
 --
 ALTER TABLE `startincubation`
-  MODIFY `StartIncubationID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `StartIncubationID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `testlist`

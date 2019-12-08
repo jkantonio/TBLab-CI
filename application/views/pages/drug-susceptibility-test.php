@@ -139,8 +139,12 @@
             <div class="row" style="height: 42px;">
                 <div class="col-lg-5 offset-lg-0">
                     <p class="text-right">MEDICAL TECHNOLOGIST:&nbsp;</p>
+                    <select name="medTech">
+                    <?php foreach($medtechs as $medtech){ ?>
+                        <option value="<?php echo $medtech->EmployeeID; ?>"><?php echo $medtech->UserFirstName." ".$medtech->UserLastName; ?></option>
+                    <?php } ?>
                 </div>
-                <div class="col"><input type="text" style="margin-top: 0px;height: 24px;width: 345px;"required>
+                <div class="col">
                     <input type="date" name="dateReported"required>
                 </div>
             </div>

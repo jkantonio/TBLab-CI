@@ -15,6 +15,14 @@ class DrugSusceptibilityTest_Model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function getMedTechs(){
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->where('UserProfession', 'Medical Technologist');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function inputData(){
 		//updating the transaction log
 		$employeeID = $this->session->userdata('userID');
@@ -39,6 +47,7 @@ class DrugSusceptibilityTest_Model extends CI_Model
 		$rifampicinResult = $this->input->post('rifampicinResult');
 		$ethambutolResult = $this->input->post('ethambutolResult');
 		$pyrazinamideResult = $this->input->post('p2aResult');
+		$medTechID = $this->input->post('medTech');
 
 		$data1 = array(
 			'Streptomycin' => $streptomycinResult,
@@ -47,7 +56,7 @@ class DrugSusceptibilityTest_Model extends CI_Model
 			'Ethambutol' => $ethambutolResult,
 			'Pyrazinamide'=> $pyrazinamideResult,
 			'DSTReportDate' => $dateProc,
-			'EmployeeID' => $employeeID,
+			'EmployeeID' => $medTechID,
 			'WorkupRequestID' => 1,
 			'TransactionLogID' => $lastID
 		);

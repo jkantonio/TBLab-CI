@@ -20,6 +20,7 @@ class DrugSusceptibilityTest extends CI_controller
 		$data['patientID'] = $row['PatientID'];
 		$data['userID'] = $this->session->userdata('userID');
 		$data['priv'] = $this->session->userdata('privilage');
+		$data['medtechs'] = $this->DrugSusceptibilityTest_Model->getMedTechs();
 		$this->load->view('pages/drug-susceptibility-test',$data);
 	}
 

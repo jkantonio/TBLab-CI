@@ -30,7 +30,21 @@ class SputumCollection extends CI_controller
 		$data['priv'] = $this->session->userdata('userID');
 		$data['userID'] = $this->session->userdata('userID');
 		$data['pdfLink'] = 'storage/tcpdf_example.pdf';
+		//call a model function with input
+		$dates = $this->findSched();
+		$data['dates'] = $dates;
+		$data['scheds'] = $this->SputumCollection_Model->getScheds($dates);
 		$this->load->view('pages/sputum-collection', $data);
+	}
+
+	public function findSched(){
+		date_default_timezone_set("Asia/Manila");
+		$currDate = date('Y-m-d');
+		for ($x = 0; $x <= 5; $x++) {
+			$newDate = date('Y-m-d', strtotime($currDate. ' + '.$x.' days'));
+			$dates[$x] = $newDate;
+		}
+		return $dates;
 	}
 
 	public function add()
@@ -50,6 +64,7 @@ class SputumCollection extends CI_controller
 		$this->generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $dateSR, $patientID, $embassy);
 		$this->load->view('spmc', $data);
 	}
+
 
 	public function generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $dateSR, $patientID, $embassy)
 	{

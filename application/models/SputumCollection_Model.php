@@ -50,5 +50,18 @@ class SputumCollection_Model extends CI_Model
         );
 		$this->db->insert('sputumcollectionschedulelog', $data1);
 	}
+
+
+	public function getScheds($dates){
+		$x = 0;
+		foreach($dates as $date){
+			$query1 = $this->db->query("SELECT COUNT(SputumCollectionID) AS NumberOfScheduled FROM sputumcollectionschedulelog WHERE CollectionStartDate = '$date'");
+			$temp = $query1->row();
+			$result[$x] = $temp->NumberOfScheduled;
+			$x++;
+		}
+
+		return $result;
+	}
 }	
 ?>

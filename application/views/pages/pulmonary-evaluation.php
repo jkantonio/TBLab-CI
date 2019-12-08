@@ -77,7 +77,17 @@
                 <div class="col-lg-1 offset-lg-4">
                     <p>Time:&nbsp;</p>
                 </div>
-                <div class="col"><select name="scheduledTime"><option value="800" selected="">8:00</option><option value="830">8:30</option><option value="900">9:00</option><option value="1100">11:00</option><option value="1300">13:00</option><option value="1330">13:30</option><option value="1500">15:00</option></select></div>
+                <div class="col">
+                <select name="scheduledTime">
+                <option value="800" selected="">8:00</option>
+                <option value="830">8:30</option>
+                <option value="900">9:00</option>
+                <option value="1100">11:00</option>
+                <option value="1300">13:00</option>
+                <option value="1330">13:30</option>
+                <option value="1500">15:00</option>
+                </select>
+                </div>
             </div>
             <div class="row">
                 <div class="col"><input class="btn btn-primary" type="submit" value="ADD" style="margin-left: 328px;"><button class="btn btn-primary" type="button" href="#" style="margin-left: 8px;">CANCEL</button><button class="btn btn-primary" type="button" style="margin-left: 8px;">PRINT</button></div>

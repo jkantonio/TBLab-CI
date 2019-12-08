@@ -48,21 +48,15 @@
                 <div class="col-md-2 col-lg-4 offset-md-3 offset-lg-2">
                     <div class="row">
                         <div class="col">
-                            <p class="text-center">LJ RESULT</p>
+                            <p class="text-center">LJ RESULT: <?php echo $ljResult; ?> </p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-center"><span><?php echo $ljResult; ?></span></div>
                     </div>
                 </div>
                 <div class="col-md-2 col-lg-4 offset-md-1 offset-lg-0">
                     <div class="row">
                         <div class="col">
-                            <p class="text-center">MGIT RESULT</p>
+                            <p class="text-center">MGIT RESULT: <?php echo $mgitResult; ?></p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-center"><span><?php echo $mgitResult; ?></span></div>
                     </div>
                 </div>
             </div>

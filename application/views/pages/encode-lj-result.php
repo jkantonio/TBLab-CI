@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark navbar-expand fixed-top bg-primary text-center" style="align-items: center;">
+    <nav class="navbar navbar-dark navbar-expand fixed-top bg-primary text-center" style="align-items: center;">
         <div class="container"><a class="navbar-brand" href="#">TB LAB</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse text-center"
                 id="navcol-1">
