@@ -26,48 +26,52 @@
     <div style="margin: 0;margin-top: 70px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-5 offset-lg-1">
+                <div class="col-md-6 col-lg-5 offset-lg-1" style="margin-top: 18px; margin-left: 25%">
                     <h2>Enter Specimen Code: </h2>
-                    <h4>Specimen Code: <?php echo $specimenCode; ?></h4>
-                    <h4>Patient ID: <?php echo $patientID; ?></h4>
+                    <p>Specimen Code: <?php echo $specimenCode; ?></p>
+                    <p>Patient ID: <?php echo $patientID; ?></p>
                 </div>
                 <form method="post">
-                    <div class="col">
-                        <input type="text" name="specimenCode" id="specimenCode" style="margin-top: 12px;" required></input>
-                        <input class="btn btn-primary btn-sm" type="submit" name="searchSpecimenCode" value="Search" id="searchBtn" style="margin-left: 16px;"></input>
+                    <div class="col-md-6 offset-md-3">
+                        <input type="text" name="specimenCode" id="specimenCode" style="margin-top: 24px; margin-left: -175px" required></input>
+                        <input class="btn btn-primary btn-sm" type="submit" name="searchSpecimenCode" value="Search" id="searchBtn" style="margin-left: 45px; margin-top: -55px"></input>
                     </div>
                 </form>
             </div>
+            
+            <!--
             <div class="row">
-                <div class="col">
-                    <h1 class="text-center">Start Incubation:</h1>
+                <div class="col-md-6 offset-md-3">
+                    <h5 class="text-left">Start Incubation</h5>
                 </div>
             </div>
+            -->
+
             <form method="post" action="<?php echo base_url(); ?>StartIncubation/start" name="add">
             <div class="row">
-                <div class="col-lg-2 offset-lg-4">
-                    <p>Date: </p>
+                <div class="col-lg-2 offset-lg-3">
+                    <p>Incubation Date: </p>
                 </div>
-                <div class="col-lg-4 offset-lg-0">
+                <div class="col-lg-2 offset-lg-0" style="margin-left: -40px; margin-top: -5px">
                     <input type="date" name="dateProcessed" required>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+            <div class="row" style="margin-left: 200px">
+                <div class="col-lg-2 offset-lg-0">
                     <div class="form-check text-right">
                         <input class="form-check-input" type="radio" name="incubationType" value="MGIT" id="formCheck-1" required>
                             <label class="form-check-label" for="formCheck-1">MGIT</label>
                         </input>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-lg-2 offset-lg-0">
                     <div class="form-check text-center">
                         <input class="form-check-input" type="radio" name="incubationType" value="LJ" id="formCheck-1" required>
                             <label class="form-check-label" for="formCheck-1">LJ</label>
                         </input>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-lg-2 offset-lg-0">
                     <div class="form-check text-left">
                         <input class="form-check-input" type="radio" name="incubationType" value="Both" id="formCheck-3" required>
                             <label class="form-check-label" for="formCheck-3">Both</label>
@@ -75,13 +79,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 10px; margin-left: -185px">
                 <div class="col-md-6 col-lg-4 offset-lg-2">
                     <input type="hidden" value="<?php echo $specimenCode; ?>" name="specCode">
                     <input class="btn btn-primary text-center" type="submit" style="margin-left: 235px;margin-right: 0;" value="Start">
                 </div>
                 <div class="col-lg-2">
-                    <button class="btn btn-primary" type="button" style="margin-left: -6px;">Cancel</button>
+                    <button class="btn btn-primary" type="button" style="margin-left: -120px;">Cancel</button>
                 </div>
             </div>
             </form>

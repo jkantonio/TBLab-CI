@@ -23,31 +23,21 @@ class PulmonaryEvaluation extends CI_controller{
 
     public function schedEvalDate(){
         // For PDF
-        $row = $this->PulmonaryEvaluation_Model->getPosts();
-        $PatientID = $row['PatientID'];
-        $PatientFN = $row['PatientFirstName'];
-        $PatientMN = $row['PatientMiddleName'];
-        $PatientLN = $row['PatientLastName'];
+        // $PatientFN = $row['PatientFirstName'];
+        // $PatientMN = $row['PatientMiddleName'];
+        // $PatientLN = $row['PatientLastName'];
         //get values from post
+        $PatientName = $this->input->post('patientFullName');
+        $PatientID = $this->input->post('patientID');
         $date = $this->input->post('scheduledDate');
         $time = $this->input->post('scheduledTime');
         $sputumCollectionID = $this->input->post('sputumCollectionID');
-        $message = $this->PulmonaryEvaluation_Model->setScheduleDate($date,$time,$sputumCollectionID);
-        // if($message == 'succesful')
-        // {
-        //     //put a message for succesful operation
-        //     $this->index();
-        // }
-        // else
-        // {
-        //     $this->index();
-        // }
-        //call model function, pass parameters
-        $this->generate_pdf($PatientID, $PatientFN, $PatientMN, $PatientLN, $date, $time);
+        $this->PulmonaryEvaluation_Model->setScheduleDate($date, $time, $sputumCollectionID);
+        $this->generate_pdf($PatientID, $PatientName, $date, $time);
         $this->load->view('pulmoeval', $data);
     }
 
-    public function generate_pdf($PatientID, $PatientFN, $PatientMN, $PatientLN, $date, $time)
+    public function generate_pdf($PatientID, $PatientName, $date, $time)
     {
         // Load PDF Library
         $this->load->library('PulmoPdf');
@@ -103,27 +93,26 @@ class PulmonaryEvaluation extends CI_controller{
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
     // Set some content to print
-    $html = "<div>
-        Name: ".$PatientFN . " ".$PatientMN. " ".$PatientLN."
-        Date of Collection: ".$PatientID."
+    $html = "
+        Name: ".$PatientName."
+        Date of Collection: ".$date."
 
     <div>
-        Please come personally on (put date and time here)
-        Present this slip and your passport at the ground floor Pulmonary Evaluation counter for the
-        smear result.
+            Please come personally at ".$time."
+        Present this slip and your passport at the ground floor 
+        Pulmonary Evaluation counter for the smear result.
     </div>
-
     <div>
-        Incubation period for the culture requires eight (8) weeks or two (2) months for a negative
-        result to be released.
+            Incubation period for the culture requires eight (8) 
+        weeks or two (2) months for a negative result to be 
+        released.
     </div>
 
-    <div>                                ________________________</div>
-                                Lab Representative
-    </div>";
+    <div>                                   ________________________</div>
+                                      Lab Representative";
 
     // Print text using writeHTMLCell()
-    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'C', true);   
+    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'L', true);   
   
     // ---------------------------------------------------------    
   
