@@ -157,7 +157,8 @@ class SputumCollection extends CI_controller
   
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
-    $pdf->Output("Sputum Examination Request Patient " .$patientID. " Form", 'I');
+    ob_end_clean();
+    $pdf->Output("Sputum Examination Request Patient " .$patientID. " Form", 'D');
 	exit();  
   
 
