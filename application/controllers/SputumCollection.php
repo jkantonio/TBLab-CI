@@ -61,11 +61,11 @@ class SputumCollection extends CI_controller
 		$sputumDate = $this->input->post('sputumDate');
 		$patientID = $this->input->post('patientID');
 		$this->SputumCollection_Model->addSputumCollection($sputumDate,$patientID);
-		$this->generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $sputumDate, $patientID, $embassy);
+		$this->generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $patientID, $embassy, $sputumDate);
 		$this->load->view('spmc', $data);
 	}
 
-	public function generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $sputumDate, $patientID, $embassy)
+	public function generate_pdf($PatientFN, $PatientMN, $PatientLN, $sex, $patientID, $embassy, $sputumDate)
 	{
 		// Load PDF Library
 		$this->load->library('SputumPdf');
@@ -121,31 +121,37 @@ class SputumCollection extends CI_controller
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
     // Set some content to print
-    $html = "<div>
-		Name: ".$PatientFN . " ".$PatientMN. " ".$PatientLN." Gender: ".$sex." Date Scheduled: ".$sputumDate."
-		Patient ID: ".$patientID." Embassy: ".$embassy."
 
-	<div>
-		Please come personally for sputum examination for three successive 
-		mornings on the dates indicated below. Report promptly from 
-		6:00 AM to 8:00 AM only. Please do not take your breakfast. 
-		Only water is allowed.
-	</div>
+    $sputumDate1 = date('M-d', strtotime($sputumDate));
+    $sputumDate2 = date('M-d', strtotime($sputumDate . " + 1 day"));
+    $sputumDate3 = date('M-d', strtotime($sputumDate . " + 2 day"));
 
-	<div>
-		Tardiness or failure to complete the three days collection 
-		would mean repetition of the series with additional fees 
-		to be charged. Please bring your passport.
-	</div>
+	$html = "
+		\t\t\t\tName: ".$PatientFN . " ".$PatientMN. " ".$PatientLN."	Gender: ".$sex."	Embassy: ".$embassy."
+		\t\t\t\tDate Scheduled: ".$sputumDate."		Patient ID: ".$patientID."
+	    
+	    <div>
+		    	\t\t\t\tPlease come personally for sputum examination for three
+		    successive mornings on the dates indicated below. Report
+		    promptly from 6:00 AM to 8:00 AM only. Please do not take
+		    your breakfast. Only water is allowed.
+	    </div>
+	    <div>
+	    		\t\t\t\tTardiness or failure to complete the three days
+	    	collection would mean repetition of the series with
+	    	additional fees to be charged. Please bring your passport.
+	    </div>
+	    <div>
+	    		\t\t\t\tCOLLECTION DATES ON: ".$sputumDate1.", ".$sputumDate2.", and ".$sputumDate3.".
+	    </div>
 
-	<div>COLLECTION DATES ON: November 25 - 27, 2019</div>
+		\t\t\t\t______________________             ______________________
+							Applicant Signature                 Lab Representative";
 
-	<div>________________________             ________________________</div>
-Applicant Signature                 Lab Representative</div>
-</div>";
+
 
     // Print text using writeHTMLCell()
-    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'C', true);   
+    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'L', true);   
   
     // ---------------------------------------------------------    
   

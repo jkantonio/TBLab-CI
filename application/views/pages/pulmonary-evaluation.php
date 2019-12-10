@@ -55,7 +55,15 @@
                     <p>Name:</p>
                 </div>
                 <div class="col-lg-4">
-                    <p><?php echo $result->PatientFirstName." " .$result->PatientMiddleName." ".$result->PatientLastName; ?></p>
+                    <p>
+                        <?php // Prints Patient Name but also stores it in a variable
+                        echo $result->PatientFirstName." " .$result->PatientMiddleName." ".$result->PatientLastName;
+                        ?>
+
+                        <?php 
+                        $patientNameHidden = $result->PatientFirstName. " " .$result->PatientMiddleName." ".$result->PatientLastName;
+                        ?>
+                    </p>
                 </div>
             </div>
             <?php $sputumCollectionIDTemp = $result->SputumCollectionID;
@@ -79,16 +87,20 @@
                 </div>
                 <div class="col">
                 <select name="scheduledTime">
-                <option value="800" selected="">8:00</option>
-                <option value="830">8:30</option>
-                <option value="900">9:00</option>
-                <option value="1100">11:00</option>
-                <option value="1300">13:00</option>
-                <option value="1330">13:30</option>
-                <option value="1500">15:00</option>
+                <option value="8:00" selected="">8:00</option>
+                <option value="8:30">8:30</option>
+                <option value="9:00">9:00</option>
+                <option value="11:00">11:00</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="15:00">15:00</option>
                 </select>
                 </div>
             </div>
+            <?php // Gets patient id in hidden form to pass to function ?>
+            <?php $patientIDHidden = $result->PatientID; ?>
+            <input type="hidden"  name="patientFullName" value="<?php echo $patientNameHidden;?>">
+            <input type="hidden" name="patientID" value="<?php echo $patientIDHidden;?>">
             <div class="row">
                 <div class="col">
                     <input class="btn btn-primary" type="submit" value="ADD" style="margin-left: 328px;">
