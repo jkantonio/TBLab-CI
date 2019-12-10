@@ -101,23 +101,21 @@ class PulmonaryEvaluation extends CI_controller{
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
     // Set some content to print
-    $html = "
+    $html = "<b>
         Name: ".$PatientName."
-        Date of Collection: ".$date."
 
     <div>
-            Please come personally at ".$time."
-        Present this slip and your passport at the ground floor 
-        Pulmonary Evaluation counter for the smear result.
+            Please come for your Pulmonary Evaluation which is 
+        scheduled on ".$date." at ".$time." Present this slip
+        and your passport at the ground floor Pulmonary 
+        Evaluation counter for the smear result.
     </div>
-    <div>
-            Incubation period for the culture requires eight (8) 
-        weeks or two (2) months for a negative result to be 
-        released.
-    </div>
+            Please be advised that the incubation period for 
+        the culture requires eight (8) weeks or two (2) months 
+        for a negative result to be released.
 
     <div>                                   ________________________</div>
-                                      Lab Representative";
+                                      Lab Representative</b>";
 
     // Print text using writeHTMLCell()
     $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'L', true);   

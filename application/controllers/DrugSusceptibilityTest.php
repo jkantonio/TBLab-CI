@@ -111,7 +111,7 @@ class DrugSusceptibilityTest extends CI_controller
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
     // Set some content to print
-    $html = "
+    $html = "<b>
         Patient Name: ".$PatientName."
         Patient ID: ".$PatientID."
 
@@ -126,11 +126,11 @@ class DrugSusceptibilityTest extends CI_controller
         Pyrazinamide				100 mcg/ml 												".$result5."
     </div>
     
-    Date Reported: ".$ReportDate."
+    \t\t\t\tDate Reported: ".$ReportDate."
 
     <div>                                   ________________________</div>
                                       Medical Technologist
-                                      ".$MedTech."";
+                                      ".$MedTech."</b>";
 
     // Print text using writeHTMLCell()
     $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'L', true);   

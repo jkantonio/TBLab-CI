@@ -93,13 +93,13 @@
                 </div>
                 <div class="col">
                 <select name="scheduledTime" required>
-                <option value="8:00" selected="">8:00</option>
-                <option value="8:30">8:30</option>
-                <option value="9:00">9:00</option>
-                <option value="11:00">11:00</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="15:00">15:00</option>
+                <option value="8:00 AM" selected="">8:00 AM</option>
+                <option value="8:30 AM">8:30 AM</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="1:30 PM">1:30 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
                 </select>
                 </div>
             </div>
