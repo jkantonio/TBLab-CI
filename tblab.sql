@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2019 at 09:32 AM
+-- Generation Time: Dec 10, 2019 at 08:44 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -55,74 +55,11 @@ CREATE TABLE `assigncode` (
 --
 
 INSERT INTO `assigncode` (`SpecimenCode`, `SputumCollectionID`, `DateCollected`, `TransactionLogID`, `WithSmearResult`, `WithMGITFinalResult`, `withLJFinalResult`, `withFinalCultureResult`, `withMGITWorkup`, `withLJWorkUp`, `MGITRedigested`, `LJRedigested`, `WithDST`, `WithGenexpert`, `Cancelled`, `ShowInReport`, `Locked`, `UserNotes`, `ReportRemarks`) VALUES
-('USI00001A', 21, '2019-12-03', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
-('USI00001B', 21, '2019-12-04', 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `atweekslog`
---
-
-CREATE TABLE `atweekslog` (
-  `AtWeeksLogID` int(10) NOT NULL,
-  `WorkupRequestID` int(10) DEFAULT NULL,
-  `AtWeeksDate` date DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cancelspecimencodelog`
---
-
-CREATE TABLE `cancelspecimencodelog` (
-  `CancelSpecimenCodeLogID` int(10) NOT NULL,
-  `SpecimenCode` varchar(10) DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL,
-  `EmployeeID` int(10) DEFAULT NULL,
-  `CancelSpecimenCodeReason` varchar(80) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cancelworkuplog`
---
-
-CREATE TABLE `cancelworkuplog` (
-  `CancelWorkupLogID` int(10) NOT NULL,
-  `WorkupRequestID` int(10) DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL,
-  `EmployeeID` int(10) DEFAULT NULL,
-  `CancelWorkupReason` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `codegenerator`
---
-
-CREATE TABLE `codegenerator` (
-  `CountryCollectionType` char(5) NOT NULL,
-  `Count` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `codegenerator`
---
-
-INSERT INTO `codegenerator` (`CountryCollectionType`, `Count`) VALUES
-('AUI', 1),
-('AUR', 1),
-('CAI', 1),
-('CAR', 1),
-('NZI', 1),
-('NZR', 1),
-('USI', 1),
-('USR', 1);
+('USI00001A', 28, '2019-12-08', 29, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
+('USI00001B', 28, '2019-12-08', 33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
+('USI00001C', 28, '2019-12-08', 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
+('USI00002A', 33, '2019-12-08', 41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', ''),
+('USR00005A', 34, '2019-12-08', 43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -133,36 +70,18 @@ INSERT INTO `codegenerator` (`CountryCollectionType`, `Count`) VALUES
 CREATE TABLE `culturefinalresultlog` (
   `CultureFinalResultLogID` int(10) NOT NULL,
   `SpecimenCode` varchar(10) DEFAULT NULL,
-  `CultureFinalResultID` int(1) DEFAULT NULL,
+  `MannerOfReporting` varchar(50) DEFAULT NULL,
   `CultureFinalResultDate` date DEFAULT NULL,
   `TransactionLogID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `cultureresultlist`
+-- Dumping data for table `culturefinalresultlog`
 --
 
-CREATE TABLE `cultureresultlist` (
-  `CultureFinalResultID` int(1) NOT NULL,
-  `CultureFinalResult` varchar(10) DEFAULT NULL,
-  `CultureFinalMannerOfReporting` varchar(70) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cultureznsmearlog`
---
-
-CREATE TABLE `cultureznsmearlog` (
-  `CultureZNSmearLogID` int(10) NOT NULL,
-  `AFB` varchar(20) DEFAULT NULL,
-  `ZNDescription` varchar(80) DEFAULT NULL,
-  `WorkupRequestID` int(10) DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `culturefinalresultlog` (`CultureFinalResultLogID`, `SpecimenCode`, `MannerOfReporting`, `CultureFinalResultDate`, `TransactionLogID`) VALUES
+(5, 'USI00001A', 'Positive for Mycobacterium tuberculosis complex', '2019-12-09', 59),
+(6, '', 'No Mycobacterium tuberculosis complex isolated', '2019-12-10', 60);
 
 -- --------------------------------------------------------
 
@@ -188,36 +107,7 @@ CREATE TABLE `dstresultlog` (
 --
 
 INSERT INTO `dstresultlog` (`DSTResultLogID`, `Streptomycin`, `Isoniazid`, `Rifampicin`, `Ethambutol`, `Pyrazinamide`, `DSTReportDate`, `EmployeeID`, `TransactionLogID`, `WorkupRequestID`) VALUES
-(1, 'sensitive', 'sensitive', 'sensitive', NULL, 'sensitive', '2018-11-04', 21, 17, 1),
-(2, 'resistant', 'resistant', 'resistant', NULL, 'resistant', '2019-12-12', 21, 18, 1),
-(3, 'sensitive', 'resistant', 'sensitive', 'sensitive', 'sensitive', '2019-12-18', 21, 19, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `genexpertresultlist`
---
-
-CREATE TABLE `genexpertresultlist` (
-  `GenexpertResultListID` int(1) NOT NULL,
-  `GenexpertResult` varchar(20) DEFAULT NULL,
-  `GenexpertMannerOfReporting` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `genexpertresultlog`
---
-
-CREATE TABLE `genexpertresultlog` (
-  `GenexpertResultLogID` int(10) NOT NULL,
-  `GenexpertResultListID` int(1) DEFAULT NULL,
-  `GenexpertResultDate` date DEFAULT NULL,
-  `EmployeeID` int(10) DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL,
-  `WorkupRequestID` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(4, 'sensitive', 'resistant', 'sensitive', 'sensitive', 'resistant', '2019-12-12', 222, 39, 1);
 
 -- --------------------------------------------------------
 
@@ -228,7 +118,7 @@ CREATE TABLE `genexpertresultlog` (
 CREATE TABLE `ljfinalresultlog` (
   `LJFinalResultLogID` int(10) NOT NULL,
   `SpecimenCode` varchar(10) DEFAULT NULL,
-  `LJFinalResult` varchar(10) DEFAULT NULL,
+  `LJFinalResult` varchar(20) DEFAULT NULL,
   `LJFinalResultDate` date DEFAULT NULL,
   `TransactionLogID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -238,7 +128,7 @@ CREATE TABLE `ljfinalresultlog` (
 --
 
 INSERT INTO `ljfinalresultlog` (`LJFinalResultLogID`, `SpecimenCode`, `LJFinalResult`, `LJFinalResultDate`, `TransactionLogID`) VALUES
-(1, 'USI00001A', 'contaminat', '2019-12-12', 13);
+(2, 'USI00001A', 'contaminated', '2019-12-11', 37);
 
 -- --------------------------------------------------------
 
@@ -249,7 +139,7 @@ INSERT INTO `ljfinalresultlog` (`LJFinalResultLogID`, `SpecimenCode`, `LJFinalRe
 CREATE TABLE `mgitfinalresultlog` (
   `MGITFinalResultLogID` int(10) NOT NULL,
   `SpecimenCode` varchar(10) DEFAULT NULL,
-  `MGITFinalResult` varchar(10) DEFAULT NULL,
+  `MGITFinalResult` varchar(20) DEFAULT NULL,
   `MGITFinalResultDate` date DEFAULT NULL,
   `TransactionLogID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -259,7 +149,7 @@ CREATE TABLE `mgitfinalresultlog` (
 --
 
 INSERT INTO `mgitfinalresultlog` (`MGITFinalResultLogID`, `SpecimenCode`, `MGITFinalResult`, `MGITFinalResultDate`, `TransactionLogID`) VALUES
-(1, 'USI00001A', 'contaminat', '2019-12-10', 14);
+(2, 'USI00001A', 'positive', '2019-12-11', 38);
 
 -- --------------------------------------------------------
 
@@ -309,32 +199,10 @@ CREATE TABLE `pulmonaryevaluationschedulelog` (
 --
 
 INSERT INTO `pulmonaryevaluationschedulelog` (`PulmonaryEvaluationID`, `SputumCollectionID`, `PulmonaryEvaluationDate`, `PulmonaryEvaluationTime`, `TransactionLogID`) VALUES
-(7, 21, '2019-12-11', '800', 7);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `redigestlog`
---
-
-CREATE TABLE `redigestlog` (
-  `RedigestLogID` int(10) NOT NULL,
-  `WorkupRequestID` int(10) DEFAULT NULL,
-  `DateRedigested` date DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `smearresultlist`
---
-
-CREATE TABLE `smearresultlist` (
-  `SmearResultID` int(10) NOT NULL,
-  `SmearResult` varchar(2) DEFAULT NULL,
-  `SmearMannerOfReporting` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(8, 28, '2019-12-11', '900', 35),
+(9, 28, '0000-00-00', '800', 45),
+(10, 0, '0000-00-00', '800', 46),
+(11, 0, '0000-00-00', '800', 47);
 
 -- --------------------------------------------------------
 
@@ -345,10 +213,21 @@ CREATE TABLE `smearresultlist` (
 CREATE TABLE `smearresultlog` (
   `SmearResultLogID` int(10) NOT NULL,
   `SpecimenCode` varchar(10) DEFAULT NULL,
-  `SmearResultID` int(10) DEFAULT NULL,
+  `MannerOfReporting` varchar(50) DEFAULT NULL,
   `SmearResultDate` date DEFAULT NULL,
   `TransactionLogID` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `smearresultlog`
+--
+
+INSERT INTO `smearresultlog` (`SmearResultLogID`, `SpecimenCode`, `MannerOfReporting`, `SmearResultDate`, `TransactionLogID`) VALUES
+(1, NULL, '1 AFB/100 fields', '2019-12-10', 50),
+(2, NULL, '5 AFB/100 fields', '2019-12-10', 51),
+(3, NULL, '5 AFB/100 fields', '2019-12-10', 52),
+(4, NULL, '2 AFB/100 fields', '2019-12-10', 53),
+(5, 'USI00001A', '3 AFB/100 fields', '2019-12-10', 54);
 
 -- --------------------------------------------------------
 
@@ -369,9 +248,17 @@ CREATE TABLE `sputumcollectionschedulelog` (
 --
 
 INSERT INTO `sputumcollectionschedulelog` (`SputumCollectionID`, `SputumRequestID`, `CollectionStartDate`, `TransactionLogID`, `CollectionStatus`) VALUES
-(21, 1, '2019-12-05', 1, ''),
-(22, 8, '2019-12-12', 2, ''),
-(23, 8, '2019-12-05', 3, '');
+(27, 1, '2019-12-08', 23, ''),
+(28, 1, '2019-12-10', 24, ''),
+(29, 4, '2019-12-10', 25, ''),
+(30, 4, '2019-12-25', 26, ''),
+(31, 8, '2019-12-10', 27, ''),
+(32, 4, '2019-12-08', 28, ''),
+(33, 2, '2019-12-18', 40, ''),
+(34, 4, '2019-12-18', 42, ''),
+(35, 1, '2019-12-11', 44, ''),
+(36, 8, '2019-12-09', 48, ''),
+(37, 8, '2019-12-09', 49, '');
 
 -- --------------------------------------------------------
 
@@ -425,42 +312,7 @@ CREATE TABLE `startincubation` (
 --
 
 INSERT INTO `startincubation` (`StartIncubationID`, `SpecimenCode`, `SampleProcessedOn`, `HasLJ`, `HasMGIT`, `TransactionLogID`) VALUES
-(1, 'USI00001A', '2019-12-19', 0, 0, 9),
-(2, 'USI00001B', '2019-12-12', 0, 1, 10),
-(3, 'USI00001A', '2019-12-11', 1, 0, 11);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testlist`
---
-
-CREATE TABLE `testlist` (
-  `TestListID` int(2) NOT NULL,
-  `TestName` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `testlist`
---
-
-INSERT INTO `testlist` (`TestListID`, `TestName`) VALUES
-(1, 'Genexpert'),
-(2, 'Drug Susceptibility Test');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testlog`
---
-
-CREATE TABLE `testlog` (
-  `TestLogID` int(10) NOT NULL,
-  `WorkupRequestID` int(10) DEFAULT NULL,
-  `TestResult` varchar(20) DEFAULT NULL,
-  `TestResultDate` date DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(4, 'USI00001A', '2019-12-11', 1, 0, 36);
 
 -- --------------------------------------------------------
 
@@ -500,31 +352,72 @@ CREATE TABLE `transactionlog` (
   `TransactionLogID` int(10) NOT NULL,
   `TransactionListID` int(5) DEFAULT NULL,
   `EmployeeID` int(10) DEFAULT NULL,
-  `DateTimeOfTransaction` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `DateTimeOfTransaction` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `RelevantInfo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transactionlog`
 --
 
-INSERT INTO `transactionlog` (`TransactionLogID`, `TransactionListID`, `EmployeeID`, `DateTimeOfTransaction`) VALUES
-(3, 1, 21, '2019-12-03 16:10:10'),
-(4, 2, 21, '2019-12-02 16:00:00'),
-(5, 2, 21, '2019-12-03 16:16:20'),
-(6, 2, 21, '2019-12-03 16:17:30'),
-(7, 3, 21, '2019-12-03 09:18:28'),
-(8, 4, 21, '2019-12-04 08:40:46'),
-(9, 4, 21, '2019-12-04 08:42:17'),
-(10, 4, 21, '2019-12-04 08:43:03'),
-(11, 4, NULL, '2019-12-04 16:23:47'),
-(12, 7, 21, '2019-12-04 17:34:32'),
-(13, 7, 21, '2019-12-04 17:35:24'),
-(14, 6, 21, '2019-12-04 17:47:51'),
-(15, 11, 21, '2019-12-04 18:31:31'),
-(16, 11, 21, '2019-12-04 18:34:11'),
-(17, 11, 21, '2019-12-04 18:36:01'),
-(18, 11, 21, '2019-12-04 18:38:25'),
-(19, 11, 21, '2019-12-04 18:39:10');
+INSERT INTO `transactionlog` (`TransactionLogID`, `TransactionListID`, `EmployeeID`, `DateTimeOfTransaction`, `RelevantInfo`) VALUES
+(3, 1, 21, '2019-12-03 16:10:10', ''),
+(4, 2, 21, '2019-12-02 16:00:00', ''),
+(5, 2, 21, '2019-12-03 16:16:20', ''),
+(6, 2, 21, '2019-12-03 16:17:30', ''),
+(7, 3, 21, '2019-12-03 09:18:28', ''),
+(8, 4, 21, '2019-12-04 08:40:46', ''),
+(9, 4, 21, '2019-12-04 08:42:17', ''),
+(10, 4, 21, '2019-12-04 08:43:03', ''),
+(12, 7, 21, '2019-12-04 17:34:32', ''),
+(13, 7, 21, '2019-12-04 17:35:24', ''),
+(14, 6, 21, '2019-12-04 17:47:51', ''),
+(15, 11, 21, '2019-12-04 18:31:31', ''),
+(16, 11, 21, '2019-12-04 18:34:11', ''),
+(17, 11, 21, '2019-12-04 18:36:01', ''),
+(18, 11, 21, '2019-12-04 18:38:25', ''),
+(19, 11, 21, '2019-12-04 18:39:10', ''),
+(20, 1, 21, '2019-12-08 04:39:29', ''),
+(21, 1, 21, '2019-12-08 11:10:54', ''),
+(22, 1, 21, '2019-12-08 11:11:33', ''),
+(23, 1, 21, '2019-12-08 11:18:46', ''),
+(24, 1, 21, '2019-12-08 11:31:29', ''),
+(25, 1, 21, '2019-12-08 11:32:03', ''),
+(26, 1, 21, '2019-12-08 11:33:01', ''),
+(27, 1, 21, '2019-12-08 11:33:44', ''),
+(28, 1, 21, '2019-12-08 11:34:13', ''),
+(29, 2, 21, '2019-12-08 11:36:30', ''),
+(30, 2, 21, '2019-12-08 11:37:32', ''),
+(31, 2, 21, '2019-12-08 11:37:53', ''),
+(32, 2, 21, '2019-12-08 11:38:18', ''),
+(33, 2, 21, '2019-12-08 11:38:32', ''),
+(34, 2, 21, '2019-12-08 11:38:42', ''),
+(35, 3, 21, '2019-12-08 04:39:52', ''),
+(36, 4, 21, '2019-12-08 11:45:44', ''),
+(37, 7, 21, '2019-12-08 11:46:01', ''),
+(38, 6, 21, '2019-12-08 11:46:14', ''),
+(39, 11, 21, '2019-12-08 11:46:42', ''),
+(40, 1, 21, '2019-12-08 11:55:24', ''),
+(41, 2, 21, '2019-12-08 11:55:40', ''),
+(42, 1, 21, '2019-12-08 11:58:57', ''),
+(43, 2, 21, '2019-12-08 11:59:48', ''),
+(44, 1, 21, '2019-12-08 12:11:42', ''),
+(45, 3, 21, '2019-12-08 05:12:36', ''),
+(46, 3, 21, '2019-12-08 05:13:43', ''),
+(47, 3, 21, '2019-12-08 05:13:58', ''),
+(48, 1, 21, '2019-12-08 14:57:08', ''),
+(49, 1, 21, '2019-12-08 15:12:17', '1484444'),
+(50, 6, 21, '2019-12-08 15:50:06', '12312'),
+(51, 6, 21, '2019-12-08 15:50:15', '12312'),
+(52, 6, 21, '2019-12-08 15:51:31', '1451234'),
+(53, 6, 21, '2019-12-08 15:51:40', '1451234'),
+(54, 6, 21, '2019-12-08 15:52:39', '1451234'),
+(55, 11, 21, '2019-12-09 15:19:26', 'USI00001A'),
+(56, 11, 21, '2019-12-09 15:19:49', 'USI00001A'),
+(57, 11, 21, '2019-12-09 15:20:12', 'USI00001A'),
+(58, 11, 21, '2019-12-09 15:20:28', 'USI00001A'),
+(59, 11, 21, '2019-12-09 15:22:38', '1451234'),
+(60, 11, 21, '2019-12-09 15:46:34', '');
 
 -- --------------------------------------------------------
 
@@ -558,21 +451,6 @@ INSERT INTO `users` (`EmployeeID`, `Password`, `UserLastName`, `UserFirstName`, 
 (222, 'andradeh', 'Andrade', 'Hazel Anne', NULL, 'Staff', 'Medical Technologist', 50465, 'basic', 0),
 (345, 'punzalanc', 'Punzalan', 'Charlene', NULL, 'Staff', 'Medical Technologist', 52516, 'basic', 0);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `workuprequest`
---
-
-CREATE TABLE `workuprequest` (
-  `WorkupRequestID` int(10) NOT NULL,
-  `SpecimenCode` varchar(10) DEFAULT NULL,
-  `TestListID` int(2) DEFAULT NULL,
-  `TransactionLogID` int(10) DEFAULT NULL,
-  `RequestDone` varchar(10) DEFAULT NULL,
-  `MediaType` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 --
 -- Indexes for dumped tables
 --
@@ -584,64 +462,16 @@ ALTER TABLE `assigncode`
   ADD PRIMARY KEY (`SpecimenCode`);
 
 --
--- Indexes for table `atweekslog`
---
-ALTER TABLE `atweekslog`
-  ADD PRIMARY KEY (`AtWeeksLogID`);
-
---
--- Indexes for table `cancelspecimencodelog`
---
-ALTER TABLE `cancelspecimencodelog`
-  ADD PRIMARY KEY (`CancelSpecimenCodeLogID`);
-
---
--- Indexes for table `cancelworkuplog`
---
-ALTER TABLE `cancelworkuplog`
-  ADD PRIMARY KEY (`CancelWorkupLogID`);
-
---
--- Indexes for table `codegenerator`
---
-ALTER TABLE `codegenerator`
-  ADD PRIMARY KEY (`CountryCollectionType`);
-
---
 -- Indexes for table `culturefinalresultlog`
 --
 ALTER TABLE `culturefinalresultlog`
   ADD PRIMARY KEY (`CultureFinalResultLogID`);
 
 --
--- Indexes for table `cultureresultlist`
---
-ALTER TABLE `cultureresultlist`
-  ADD PRIMARY KEY (`CultureFinalResultID`);
-
---
--- Indexes for table `cultureznsmearlog`
---
-ALTER TABLE `cultureznsmearlog`
-  ADD PRIMARY KEY (`CultureZNSmearLogID`);
-
---
 -- Indexes for table `dstresultlog`
 --
 ALTER TABLE `dstresultlog`
   ADD PRIMARY KEY (`DSTResultLogID`);
-
---
--- Indexes for table `genexpertresultlist`
---
-ALTER TABLE `genexpertresultlist`
-  ADD PRIMARY KEY (`GenexpertResultListID`);
-
---
--- Indexes for table `genexpertresultlog`
---
-ALTER TABLE `genexpertresultlog`
-  ADD PRIMARY KEY (`GenexpertResultLogID`);
 
 --
 -- Indexes for table `ljfinalresultlog`
@@ -668,18 +498,6 @@ ALTER TABLE `pulmonaryevaluationschedulelog`
   ADD PRIMARY KEY (`PulmonaryEvaluationID`);
 
 --
--- Indexes for table `redigestlog`
---
-ALTER TABLE `redigestlog`
-  ADD PRIMARY KEY (`RedigestLogID`);
-
---
--- Indexes for table `smearresultlist`
---
-ALTER TABLE `smearresultlist`
-  ADD PRIMARY KEY (`SmearResultID`);
-
---
 -- Indexes for table `smearresultlog`
 --
 ALTER TABLE `smearresultlog`
@@ -704,18 +522,6 @@ ALTER TABLE `startincubation`
   ADD PRIMARY KEY (`StartIncubationID`);
 
 --
--- Indexes for table `testlist`
---
-ALTER TABLE `testlist`
-  ADD PRIMARY KEY (`TestListID`);
-
---
--- Indexes for table `testlog`
---
-ALTER TABLE `testlog`
-  ADD PRIMARY KEY (`TestLogID`);
-
---
 -- Indexes for table `transactionlist`
 --
 ALTER TABLE `transactionlist`
@@ -734,98 +540,50 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`EmployeeID`);
 
 --
--- Indexes for table `workuprequest`
---
-ALTER TABLE `workuprequest`
-  ADD PRIMARY KEY (`WorkupRequestID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `atweekslog`
---
-ALTER TABLE `atweekslog`
-  MODIFY `AtWeeksLogID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cancelspecimencodelog`
---
-ALTER TABLE `cancelspecimencodelog`
-  MODIFY `CancelSpecimenCodeLogID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cancelworkuplog`
---
-ALTER TABLE `cancelworkuplog`
-  MODIFY `CancelWorkupLogID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `culturefinalresultlog`
 --
 ALTER TABLE `culturefinalresultlog`
-  MODIFY `CultureFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cultureresultlist`
---
-ALTER TABLE `cultureresultlist`
-  MODIFY `CultureFinalResultID` int(1) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cultureznsmearlog`
---
-ALTER TABLE `cultureznsmearlog`
-  MODIFY `CultureZNSmearLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `CultureFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `dstresultlog`
 --
 ALTER TABLE `dstresultlog`
-  MODIFY `DSTResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `genexpertresultlog`
---
-ALTER TABLE `genexpertresultlog`
-  MODIFY `GenexpertResultLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `DSTResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ljfinalresultlog`
 --
 ALTER TABLE `ljfinalresultlog`
-  MODIFY `LJFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `LJFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `mgitfinalresultlog`
 --
 ALTER TABLE `mgitfinalresultlog`
-  MODIFY `MGITFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MGITFinalResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pulmonaryevaluationschedulelog`
 --
 ALTER TABLE `pulmonaryevaluationschedulelog`
-  MODIFY `PulmonaryEvaluationID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `redigestlog`
---
-ALTER TABLE `redigestlog`
-  MODIFY `RedigestLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `PulmonaryEvaluationID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `smearresultlog`
 --
 ALTER TABLE `smearresultlog`
-  MODIFY `SmearResultLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `SmearResultLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sputumcollectionschedulelog`
 --
 ALTER TABLE `sputumcollectionschedulelog`
-  MODIFY `SputumCollectionID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `SputumCollectionID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `sputumrequestlog`
@@ -837,19 +595,7 @@ ALTER TABLE `sputumrequestlog`
 -- AUTO_INCREMENT for table `startincubation`
 --
 ALTER TABLE `startincubation`
-  MODIFY `StartIncubationID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `testlist`
---
-ALTER TABLE `testlist`
-  MODIFY `TestListID` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `testlog`
---
-ALTER TABLE `testlog`
-  MODIFY `TestLogID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `StartIncubationID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `transactionlist`
@@ -861,13 +607,7 @@ ALTER TABLE `transactionlist`
 -- AUTO_INCREMENT for table `transactionlog`
 --
 ALTER TABLE `transactionlog`
-  MODIFY `TransactionLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `workuprequest`
---
-ALTER TABLE `workuprequest`
-  MODIFY `WorkupRequestID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `TransactionLogID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
