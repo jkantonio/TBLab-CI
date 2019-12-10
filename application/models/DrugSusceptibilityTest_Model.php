@@ -2,6 +2,18 @@
 class DrugSusceptibilityTest_Model extends CI_Model
 {
 
+	public function getPosts()
+    {
+        $search = $this->input->post('patient');
+        $this->db->select('*');
+        $this->db->from('patient');
+        $this->db->join('sputumrequestlog', 'patient.PatientID = sputumrequestlog.PatientID', 'LEFT');
+        $this->db->where('patient.PatientID', $search);
+        $this->db->order_by('sputumrequestlog.SputumRequestId', 'DESC');
+        $query = $this->db->get();
+        return $query->row_array();
+    }  
+
 	public function getData()
 	{
 		$search = $this->input->post('specimenCode');

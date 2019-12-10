@@ -39,8 +39,13 @@
                         <input type="text" style="width: 220px;height: 32px;" name="specimenCode" required>
                         <input class="btn btn-primary btn-sm" type="submit" value="Search" style="margin-top: -6px;margin-left: 8px;"></input>
                     
-                    <h3>Specimen Code: <?php echo $specimenCode; ?></h3>
-                    <h3>Patient ID: <?php echo $patientID; ?></h3>
+                    <p>Specimen Code: <?php echo $specimenCode; ?></p>
+                    <?php $specimenCodeHidden = "";?>
+                    <?php $specimenCodeHidden = $specimenCode;?>
+                    <?php $patientNameHidden = "";?>
+                    <p>Patient ID: <?php echo $patientID; ?></p>
+                    <?php $patientNameHidden = $patientFirstName. " " .$patientMiddleName. " " .$patientLastName;?>
+                    <?php $patientIDHidden = $patientID;?>
                 </div>
                 </form>
             </div>
@@ -56,6 +61,7 @@
                     <p class="text-center">RESULT</p>
                 </div>
             </div>
+
             <form method="post" action="<?php echo base_url(); ?>DrugSusceptibilityTest/add">
 
             <div class="row" style="height: 42px;">
@@ -66,10 +72,10 @@
                     <p>1.0 mcg/mL</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="sensitive" required>SENSITIVE
+                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="SENSITIVE">SENSITIVE
                 </div>
                 <div class="col-lg-2">
-                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="resistant">RESISTANT</button>
+                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="RESISTANT">RESISTANT</button>
                 </div>
             </div>
 
@@ -81,10 +87,10 @@
                     <p>0.1&nbsp;mcg/mL<br><br></p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="sensitive"required>SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="SENSITIVE">SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
-                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="resistant">RESISTANT</button>
+                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="RESISTANT">RESISTANT</button>
                 </div>
             </div>
 
@@ -96,10 +102,10 @@
                     <p>1.0 mcg/mL<br><br></p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="sensitive"required>SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="SENSITIVE">SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
-                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="resistant">RESISTANT</button>
+                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="RESISTANT">RESISTANT</button>
                 </div>
             </div>
 
@@ -111,10 +117,10 @@
                     <p>5.0 mcg/mL</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="sensitive"required>SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="SENSITIVE">SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
-                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="resistant">RESISTANT</button>
+                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="RESISTANT">RESISTANT</button>
                 </div>
             </div>
 
@@ -126,29 +132,46 @@
                     <p>100 mcg/mL</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="p2aResult" value="sensitive"required>SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="p2aResult" value="SENSITIVE">SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
-                    <input class="btn btn-primary" type="radio" name="p2aResult" value="resistant">RESISTANT</button>
+                    <input class="btn btn-primary" type="radio" name="p2aResult" value="RESISTANT">RESISTANT</button>
                 </div>
             </div>
 
             <div class="row" style="height: 42px;">
-                <div class="col"><input class="btn btn-primary" type="submit" style="margin-left: 320px;" value="ADD"></button><button class="btn btn-primary" type="button" style="margin-left: 5px;">CANCEL</button><button class="btn btn-primary" type="button" style="margin-left: 5px;">CLEAR</button></div>
-            </div>
-            <div class="row" style="height: 42px;">
-                <div class="col-lg-5 offset-lg-0">
-                    <p class="text-right">MEDICAL TECHNOLOGIST:&nbsp;</p>
-                    <select name="medTech">
+                <div class="col-lg-4 offset-lg-0">
+                    <p class="text-right" style="margin-top: 15px">MEDICAL TECHNOLOGIST:&nbsp;</p>
+                </div>
+                <select name="medTech">
                     <?php foreach($medtechs as $medtech){ ?>
-                        <option value="<?php echo $medtech->EmployeeID; ?>"><?php echo $medtech->UserFirstName." ".$medtech->UserLastName; ?></option>
+                        <option value="<?php echo $medtech->UserFirstName." ".$medtech->UserLastName; ?>">
+                            <?php echo $medtech->UserFirstName." ".$medtech->UserLastName; ?>
+                        </option>
                     <?php } ?>
-                </div>
                 <div class="col">
-                    <input type="date" name="dateReported"required>
+                    <!--
+                    Needed shit: 
+                    Patient ID
+                    Patient Name
+                    Drug Result 1 - 5
+                    Med Tech 
+                    Date Reported
+                    -->
+                    <input type="date" name="dateReported">
+                    <input type="hidden" name="medTechHidden" value="<?php $medtechname;?>">
+                    <input type="hidden" name="patientIDHidden" value="<?php echo $patientIDHidden;?>">
+                    <input type="hidden" name="patientNameHidden" value="<?php echo $patientNameHidden;?>">
+                    <input type="hidden" name="specCode" value="<?php $specimenCode;?>">
+                </div>
+
+                <div class="row" style="height: 42px;">
+                    <div class="col-lg-4 offset-lg-1">
+                        <input class="btn btn-primary" type="submit" style="margin-left: 600px; margin-top: -50px" value="ADD"></button>
+                    </div>
                 </div>
             </div>
-</form>
+    </form>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
