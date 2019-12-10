@@ -29,11 +29,12 @@ class FinalCultureResult extends CI_controller
 		$this->FinalCultureResult_Model->inputData();
 		$data['userID'] = $this->session->userdata('userID');
 		$data['priv'] = $this->session->userdata('privilage');
-		$this->generate_pdf();
+		$currDate = $this->input->post('dateReported');
+		$this->generate_pdf($currDate);
 		$this->load->view('menu',$data);
 	}
 
-	public function generate_pdf()
+	public function generate_pdf($currDate)
 	{
 		// Load PDF Library
 		$this->load->library('SputumPdf');
@@ -43,8 +44,8 @@ class FinalCultureResult extends CI_controller
 		// Set document information
 		$pdf->SetCreator(PDF_CREATOR);
 		$pdf->SetAuthor('tblab');
-		$pdf->SetTitle('Sputum Examination Request Form');
-		$pdf->SetSubject('PDF of Sputum Examination Request Form');
+		$pdf->SetTitle('FINAL CULTURE REPORT');
+		$pdf->SetSubject('FINAL CULTURE REPORT');
 		$pdf->SetKeywords('TCPDF, tblab');
 
 		// set default header data
@@ -88,18 +89,13 @@ class FinalCultureResult extends CI_controller
   
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
-    // Set some content to print
+	// Set some content to print
+	
     $html = "<div>
 		Name: John Kenneth Antonio
 		Sex: M
-		Date Reported: 
-
-
-	<div>SPUTUM EXAMINATION RESULT</div>
-
-	<div>________________________             ________________________</div>
-Applicant Signature                 Lab Representative</div>
-</div>";
+		Date Reported: ".$currDate."
+		</div>";
 
 	// Print text using writeHTMLCell()
 	
@@ -131,15 +127,20 @@ $pdf->writeHTML($tbl, true, false, false, false, '');
 	}
 	
 
+$row = $this->FinalCultureResult_Model->getEmp();
+	$employee = "<div><div>".$row->UserFirstName." ".$row->UserLastName."</div></div>".$row->UserProfession."</div></div>".$row->UserLicenseNumber."</div></div>";
+	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$employee.'</pre>', 0, 1, 0, true, 'C', true); 
 
-$end = "</table>";
+
+// Print text using writeHTMLCell()
+
 
 //$pdf->writeHTML($end, true, false, false, false, '');
     // ---------------------------------------------------------    
   
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
-    $pdf->Output("CultureResult-", 'I');
+    $pdf->Output("FinalCultureResult-new", 'I');
 	exit();  
   
 
