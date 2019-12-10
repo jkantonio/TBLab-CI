@@ -29,6 +29,12 @@ class FinalCultureResult_Model extends CI_Model
 		return $query->row();
 	}
 
+	public function getPatient(){
+		$search = $this->input->post('patientID');
+		$query = $this->db->query("SELECT * FROM patient WHERE patient.patientID = '$search'");
+		return $query->row();
+	}
+
 	public function getSpecific($specimenCode){
 		$query = $this->db->query("SELECT culturefinalresultlog.MannerOfReporting as MannerOfReporting1, smearresultlog.MannerOfReporting, culturefinalresultlog.CultureFinalResultDate, smearresultlog.SmearResultDate, assigncode.DateCollected FROM culturefinalresultlog INNER JOIN smearresultlog on culturefinalresultlog.SpecimenCode = smearresultlog.SpecimenCode INNER JOIN assigncode on assigncode.SpecimenCode = smearresultlog.SpecimenCode where culturefinalresultlog.SpecimenCode = '$specimenCode'");
 		return $query->result();

@@ -45,7 +45,7 @@
     <form method="POST" action="<?php echo base_url(); ?>EnteringSmear/add">
             <div class="row">
                 <div class="col-md-10 offset-md-10">
-                    <input class="btn btn-primary" type="radio" name="smear" value="Negative" style="margin: 5px;"> 0</input>
+                    <input class="btn btn-primary" type="radio" name="smear" value="Negative" style="margin: 5px;"required> 0</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="1 AFB/100 fields" style="margin: 5px;">+1</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="2 AFB/100 fields" style="margin: 5px;">+2</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="3 AFB/100 fields" style="margin: 5px;">+3</input>
@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="col-md-9 offset-md-10">
-                    <input type="date" name="dateProc" style="margin-top: 10px; position: absolute; bottom: 15px; right: 10px">
+                    <input type="date" name="dateProc" style="margin-top: 10px; position: absolute; bottom: 15px; right: 10px" required>
                 </div>
 
             </div>

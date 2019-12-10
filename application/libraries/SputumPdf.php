@@ -14,7 +14,7 @@ class SputumPdf extends TCPDF {
         // Set font
         $this->SetFont('helvetica', 'B', 14);
         // Title
-        $this->Cell(0, 15, 'Sputum Examination Request Form', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 15, 'MEDICAL CENTER CLINIC', 0, false, 'C', 0, '', 0, false, 'M', 'M');
     }
 
     // Page footer

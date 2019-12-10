@@ -37,9 +37,10 @@ class FinalCultureResult extends CI_controller
 	public function generate_pdf($currDate)
 	{
 		// Load PDF Library
-		$this->load->library('SputumPdf');
+		$this->load->library('FinalPdf');
 
-		$pdf = new SputumPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$pdf = new FinalPdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		$pdf->setCellHeightRatio(1.0);
 
 		// Set document information
 		$pdf->SetCreator(PDF_CREATOR);
@@ -91,20 +92,37 @@ class FinalCultureResult extends CI_controller
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
 	// Set some content to print
 	
-    $html = "<div>
-		Name: John Kenneth Antonio
-		Sex: M
+	$row = $this->FinalCultureResult_Model->getPatient();
+	$patientID = $row->PatientID;
+
+	$txt = "<pre>
+<h1>TB LABORATORY DEPARTMENT</h1>
+<h4>FINAL CULTURE REPORT</h4>
+</pre>";
+
+	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$txt.'</pre>', 0, 1, 0, true, 'C', true);  
+
+
+
+
+    $html = "<pre>
+		<b>
+		Name: ".$row->PatientFirstName." ".$row->PatientLastName."
+		Sex: ".$row->PatientSex."
+		Birthday: ".$row->PatientBirthday."
+		Patient ID: ".$row->PatientID."
 		Date Reported: ".$currDate."
-		</div>";
+		</b>
+		</pre>";
 
 	// Print text using writeHTMLCell()
 	
 
-	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'C', true);   
+	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'L', true);   
 	
 
 	$tbl = <<<EOD
-<table cellspacing="" cellpadding="" border="1">
+<b><table cellspacing="" cellpadding="" border="1">
     <tr>
 		<th>COLLECTION DATE</th>
 		<th>SMEAR RESULT</th>
@@ -112,6 +130,7 @@ class FinalCultureResult extends CI_controller
 		<th>CULTURE DUE</th>
 	</tr>
 </table>
+</b>
 EOD;
 
 $pdf->writeHTML($tbl, true, false, false, false, '');
@@ -120,7 +139,7 @@ $pdf->writeHTML($tbl, true, false, false, false, '');
 	foreach($specimenRow as $spec){
 		$specificRow = $this->FinalCultureResult_Model->getSpecific($spec->SpecimenCode);
 		foreach($specificRow as $row1){
-			$tb2 = "<table cellspacing='' cellpadding='' border='1'><tr><td>".$row1->DateCollected."</td><td>".$row1->MannerOfReporting."</td><td>".$row1->MannerOfReporting1."</td><td>".$row1->SmearResultDate."</td></tr>";
+			$tb2 = "<b><table cellspacing='' cellpadding='' border='1'><tr><td>".$row1->DateCollected."</td><td>".$row1->MannerOfReporting."</td><td>".$row1->MannerOfReporting1."</td><td>".$row1->SmearResultDate."</td></tr></b>";
 
 			$pdf->writeHTML($tb2, true, false, false, false, '');
 		}
@@ -129,9 +148,9 @@ $pdf->writeHTML($tbl, true, false, false, false, '');
 
 $row = $this->FinalCultureResult_Model->getEmp();
 	$employee = "
-	__________________________
-	<div></div>".$row->UserFirstName." ".$row->UserLastName."</div></div>".$row->UserProfession."</div></div>".$row->UserLicenseNumber."</div></div>";
-	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$employee.'</pre>', 0, 1, 0, true, 'C', true); 
+	_________________________ \t\t\t\t\t\t\t\t\t\t\t\t_________________________
+	<b>".$row->UserFirstName." ".$row->UserLastName." \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ".$row->UserFirstName." ".$row->UserLastName." <div> ".$row->UserProfession." \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Medical Technologist<div> LN:".$row->UserLicenseNumber." \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t </b>";
+	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$employee.'</pre>', 0, 1, 0, true, 'L', true); 
 
 
 // Print text using writeHTMLCell()
@@ -142,7 +161,7 @@ $row = $this->FinalCultureResult_Model->getEmp();
   
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
-    $pdf->Output("FinalCultureResult-new", 'D');
+    $pdf->Output("FinalCulture " .$patientID. " Report", 'I');
 	exit();  
   
 

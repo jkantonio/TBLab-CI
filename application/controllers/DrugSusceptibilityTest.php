@@ -93,11 +93,20 @@ class DrugSusceptibilityTest extends CI_controller
     // dejavusans is a UTF-8 Unicode font, if you only need to
     // print standard ASCII chars, you can use core fonts like
     // helvetica or times to reduce file size.
-    $pdf->SetFont('times', '', 12, '', true);   
+    $pdf->SetFont('times', '', 12, '', true);
+
   
     // Add a page
     // This method has several options, check the source code documentation for more information.
     $pdf->AddPage(); 
+    
+    $pdf->setCellHeightRatio(1.0);
+        $txt = "<pre>
+<h1>TB LABORATORY DEPARTMENT</h1>
+<h4>DRUG SUSCEPTIBILITY TEST REPORT</h4>
+</pre>";
+
+    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$txt.'</pre>', 0, 1, 0, true, 'C', true); 
   
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    

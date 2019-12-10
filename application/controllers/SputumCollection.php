@@ -117,6 +117,14 @@ class SputumCollection extends CI_controller
     // Add a page
     // This method has several options, check the source code documentation for more information.
     $pdf->AddPage(); 
+
+    $pdf->setCellHeightRatio(1.0);
+        $txt = "<pre>
+<h1>TB LABORATORY DEPARTMENT</h1>
+<h4>Sputum Examination Request Form</h4>
+</pre>";
+
+    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$txt.'</pre>', 0, 1, 0, true, 'C', true);
   
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
@@ -127,8 +135,11 @@ class SputumCollection extends CI_controller
     $sputumDate3 = date('M-d', strtotime($sputumDate . " + 2 day"));
 
 	$html = "
-		\t\t\t\tName: ".$PatientFN . " ".$PatientMN. " ".$PatientLN."	Gender: ".$sex."	Embassy: ".$embassy."
-		\t\t\t\tDate Scheduled: ".$sputumDate."		Patient ID: ".$patientID."
+		<b>\t\t\t\tName: ".$PatientFN . " ".$PatientMN. " ".$PatientLN."
+		\t\t\t\tGender: ".$sex."
+		\t\t\t\tEmbassy: ".$embassy."
+		\t\t\t\tDate Scheduled: ".$sputumDate."
+		\t\t\t\tPatient ID: ".$patientID."
 	    
 	    <div>
 		    	\t\t\t\tPlease come personally for sputum examination for three
@@ -146,7 +157,7 @@ class SputumCollection extends CI_controller
 	    </div>
 
 		\t\t\t\t______________________             ______________________
-							Applicant Signature                 Lab Representative";
+							Applicant Signature                 Lab Representative</b>";
 
 
 
@@ -158,7 +169,7 @@ class SputumCollection extends CI_controller
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
     ob_end_clean();
-    $pdf->Output("Sputum Examination Request Patient " .$patientID. " Form", 'D');
+    $pdf->Output("Sputum Examination Request Patient " .$patientID. " Form", 'I');
 	exit();  
   
 

@@ -109,7 +109,7 @@
                                 <p style="width: 90px;">Start Date:</p>
                             </div>
                             <div class="col">
-                                <input name="sputumDate" type="date">
+                                <input name="sputumDate" type="date" required>
                                 <input name="patientID" type="hidden" value="<?php echo $patientID; ?>">
                             </div>
                         </div>
@@ -130,7 +130,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php for($i=0, $count = count($dates);$i<$count;$i++) {
+                                <?php for($i=0, $count = count($dates);$i<$count;$i++) 
+                                {
                                     $date  = $dates[$i];
                                     $sched = $scheds[$i];
                                 ?>

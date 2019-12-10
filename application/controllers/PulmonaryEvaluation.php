@@ -89,6 +89,14 @@ class PulmonaryEvaluation extends CI_controller{
     // Add a page
     // This method has several options, check the source code documentation for more information.
     $pdf->AddPage(); 
+
+    $pdf->setCellHeightRatio(1.0);
+        $txt = "<pre>
+<h1>TB LABORATORY DEPARTMENT</h1>
+<h4>PULMONARY EVALUATION SLIP</h4>
+</pre>";
+
+    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$txt.'</pre>', 0, 1, 0, true, 'C', true);
   
     // set text shadow effect
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
@@ -118,7 +126,7 @@ class PulmonaryEvaluation extends CI_controller{
   
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
-    $pdf->Output("Pulmonary Evaluation Patient " .$PatientID. " Slip", 'D');
+    $pdf->Output("Pulmonary Evaluation Patient " .$PatientID. " Slip", 'I');
     exit();  
   
 

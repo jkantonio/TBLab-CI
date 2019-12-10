@@ -72,7 +72,7 @@
                     <p>1.0 mcg/mL</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="SENSITIVE">SENSITIVE
+                    <input class="btn btn-primary" type="radio" name="streptomycinResult" value="SENSITIVE" required>SENSITIVE
                 </div>
                 <div class="col-lg-2">
                     <input class="btn btn-primary" type="radio" name="streptomycinResult" value="RESISTANT">RESISTANT</button>
@@ -87,7 +87,7 @@
                     <p>0.1&nbsp;mcg/mL<br><br></p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="SENSITIVE">SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="isoniazidResult" value="SENSITIVE" required>SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
                     <input class="btn btn-primary" type="radio" name="isoniazidResult" value="RESISTANT">RESISTANT</button>
@@ -102,7 +102,7 @@
                     <p>1.0 mcg/mL<br><br></p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="SENSITIVE">SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="rifampicinResult" value="SENSITIVE" required>SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
                     <input class="btn btn-primary" type="radio" name="rifampicinResult" value="RESISTANT">RESISTANT</button>
@@ -117,7 +117,7 @@
                     <p>5.0 mcg/mL</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="SENSITIVE">SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="ethambutolResult" value="SENSITIVE" required>SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
                     <input class="btn btn-primary" type="radio" name="ethambutolResult" value="RESISTANT">RESISTANT</button>
@@ -132,7 +132,7 @@
                     <p>100 mcg/mL</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1">
-                    <input class="btn btn-primary" type="radio" name="p2aResult" value="SENSITIVE">SENSITIVE</button>
+                    <input class="btn btn-primary" type="radio" name="p2aResult" value="SENSITIVE" required>SENSITIVE</button>
                 </div>
                 <div class="col-lg-2">
                     <input class="btn btn-primary" type="radio" name="p2aResult" value="RESISTANT">RESISTANT</button>
@@ -143,7 +143,7 @@
                 <div class="col-lg-4 offset-lg-0">
                     <p class="text-right" style="margin-top: 15px">MEDICAL TECHNOLOGIST:&nbsp;</p>
                 </div>
-                <select name="medTech">
+                <select name="medTech" required>
                     <?php foreach($medtechs as $medtech){ ?>
                         <option value="<?php echo $medtech->UserFirstName." ".$medtech->UserLastName; ?>">
                             <?php echo $medtech->UserFirstName." ".$medtech->UserLastName; ?>
@@ -158,7 +158,7 @@
                     Med Tech 
                     Date Reported
                     -->
-                    <input type="date" name="dateReported">
+                    <input type="date" name="dateReported" required>
                     <input type="hidden" name="medTechHidden" value="<?php $medtechname;?>">
                     <input type="hidden" name="patientIDHidden" value="<?php echo $patientIDHidden;?>">
                     <input type="hidden" name="patientNameHidden" value="<?php echo $patientNameHidden;?>">

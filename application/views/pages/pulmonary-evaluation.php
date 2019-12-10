@@ -82,7 +82,9 @@
                 <div class="col-lg-1 offset-lg-4">
                     <p>Date</p>
                 </div>
-                <div class="col offset-lg-0"><input type="date" id="scheduledDate" name="scheduledDate"></div>
+                <div class="col offset-lg-0">
+                    <input type="date" id="scheduledDate" name="scheduledDate" required>
+                </div>
             </div>
             <input type="hidden" name="sputumCollectionID" value="<?php echo $sputumCollectionIDTemp; ?>">
             <div class="row">
@@ -90,7 +92,7 @@
                     <p>Time:&nbsp;</p>
                 </div>
                 <div class="col">
-                <select name="scheduledTime">
+                <select name="scheduledTime" required>
                 <option value="8:00" selected="">8:00</option>
                 <option value="8:30">8:30</option>
                 <option value="9:00">9:00</option>
