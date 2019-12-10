@@ -90,50 +90,51 @@ class FinalCultureResult extends CI_controller
     $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));    
     // Set some content to print
     $html = "<div>
-		Name: 
+		Name: John Kenneth Antonio
+		Sex: M
+		Date Reported: 
 
-	<div>
-		Please come personally for sputum examination for three successive 
-		mornings on the dates indicated below. Report promptly from 
-		6:00 AM to 8:00 AM only. Please do not take your breakfast. 
-		Only water is allowed.
-	</div>
 
-	<div>
-		Tardiness or failure to complete the three days collection 
-		would mean repetition of the series with additional fees 
-		to be charged. Please bring your passport.
-	</div>
-
-	<div>COLLECTION DATES ON: November 25 - 27, 2019</div>
+	<div>SPUTUM EXAMINATION RESULT</div>
 
 	<div>________________________             ________________________</div>
 Applicant Signature                 Lab Representative</div>
 </div>";
 
-    // Print text using writeHTMLCell()
-    $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'C', true);   
-  
+	// Print text using writeHTMLCell()
 	
-$tbl = <<<EOD
-<table cellspacing="0" cellpadding="1" border="1">
-    <tr>
-        <td rowspan="3">COL 1 - ROW 1<br />COLSPAN 3<br />text line<br />text line<br />text line<br />text line<br />text line<br />text line</td>
-        <td>COL 2 - ROW 1</td>
-        <td>COL 3 - ROW 1</td>
-    </tr>
-    <tr>
-        <td rowspan="2">COL 2 - ROW 2 - COLSPAN 2<br />text line<br />text line<br />text line<br />text line</td>
-         <td>COL 3 - ROW 2<br />text line<br />text line</td>
-    </tr>
-    <tr>
-       <td>COL 3 - ROW 3</td>
-    </tr>
 
+	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'C', true);   
+	
+
+	$tbl = <<<EOD
+<table cellspacing="" cellpadding="" border="1">
+    <tr>
+		<th>COLLECTION DATE</th>
+		<th>SMEAR RESULT</th>
+		<th>CULTURE RESULT AFTER 8 WEEKS INCUBATION</th>
+		<th>CULTURE DUE</th>
+	</tr>
 </table>
 EOD;
 
 $pdf->writeHTML($tbl, true, false, false, false, '');
+	
+	$specimenRow = $this->FinalCultureResult_Model->getResult();
+	foreach($specimenRow as $spec){
+		$specificRow = $this->FinalCultureResult_Model->getSpecific($spec->SpecimenCode);
+		foreach($specificRow as $row1){
+			$tb2 = "<table cellspacing='' cellpadding='' border='1'><tr><td>".$row1->DateCollected."</td><td>".$row1->MannerOfReporting."</td><td>".$row1->MannerOfReporting1."</td><td>".$row1->SmearResultDate."</td></tr>";
+
+			$pdf->writeHTML($tb2, true, false, false, false, '');
+		}
+	}
+	
+
+
+$end = "</table>";
+
+//$pdf->writeHTML($end, true, false, false, false, '');
     // ---------------------------------------------------------    
   
     // Close and output PDF document
