@@ -15,11 +15,15 @@ class StartIncubation_Model extends CI_Model
 	}
 
 	public function add(){
+		
+		$specimenCode = $this->input->post('specCode');
+
 		//updating the transaction log
 		$employeeID = $this->session->userdata('userID');
 		$data = array(
 			'TransactionListID' => '4',
-			'EmployeeID' => $employeeID
+			'EmployeeID' => $employeeID,
+			'RelevantInfo' => $specimenCode
 		);
 		$this->db->insert('transactionlog', $data);
 		
@@ -33,7 +37,6 @@ class StartIncubation_Model extends CI_Model
 
 		$dateProc = $this->input->post('dateProcessed');
 		$incubType = $this->input->post('incubationType');
-		$specimenCode = $this->input->post('specCode');
 		$true = true;
 		$false = false;
 

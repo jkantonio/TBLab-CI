@@ -23,8 +23,11 @@ class EnteringSmear extends CI_controller
         $this->load->view('pages/entering-smear', $data);
 	}
 
-	public function addSmear(){
-		
+	public function add(){
+		$this->EnteringSmear_Model->inputData();
+		$data['userID'] = $this->session->userdata('userID');
+		$data['priv'] = $this->session->userdata('privilage');
+		$this->load->view('menu',$data);
 	}
 }
 ?>

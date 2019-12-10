@@ -40,7 +40,7 @@ class SputumCollection extends CI_controller
 	public function findSched(){
 		date_default_timezone_set("Asia/Manila");
 		$currDate = date('Y-m-d');
-		for ($x = 0; $x <= 5; $x++) {
+		for ($x = 0; $x <= 7; $x++) {
 			$newDate = date('Y-m-d', strtotime($currDate. ' + '.$x.' days'));
 			$dates[$x] = $newDate;
 		}
@@ -151,7 +151,7 @@ Applicant Signature                 Lab Representative</div>
   
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
-    $pdf->Output("Sputum Examination Request Patient " .$patientID. " Form", 'D');
+    $pdf->Output("Sputum Examination Request Patient " .$patientID. " Form", 'I');
 	exit();  
   
 

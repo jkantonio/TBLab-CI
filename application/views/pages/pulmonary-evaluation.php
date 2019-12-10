@@ -96,6 +96,32 @@
             </div>
             </form>
         </div>
+        <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Scheduled for Collection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                    //for($i=0, $count = count($dates);$i<$count;$i++) {
+                                    //$date  = $dates[$i];
+                                    //$sched = $scheds[$i];
+                                ?>
+
+                                <tr>
+                                    <td><?php //echo $date; ?></td>
+                                    <td><?php //echo $sched; ?></td>
+                                </tr>
+
+                                <?php //} ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

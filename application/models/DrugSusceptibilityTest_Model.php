@@ -24,10 +24,13 @@ class DrugSusceptibilityTest_Model extends CI_Model
 	}
 
 	public function inputData(){
+		
+		$specimenCode = $this->input->post('specCode');
 		//updating the transaction log
 		$employeeID = $this->session->userdata('userID');
 		$data = array(
 			'TransactionListID' => '11',
+			'RelevantInfo' => $specimenCode,
 			'EmployeeID' => $employeeID
 		);
 		$this->db->insert('transactionlog', $data);

@@ -18,9 +18,11 @@ class EncodeMGITResult_Model extends CI_Model
 	public function inputData(){
 		//updating the transaction log
 		$employeeID = $this->session->userdata('userID');
+		$specimenCode = $this->input->post('specCode');
 		$data = array(
 			'TransactionListID' => '6',
-			'EmployeeID' => $employeeID
+			'EmployeeID' => $employeeID,
+			'RelevantInfo' => $specimenCode
 		);
 		$this->db->insert('transactionlog', $data);
 		
@@ -34,7 +36,6 @@ class EncodeMGITResult_Model extends CI_Model
 
 		$dateProc = $this->input->post('dateReported');
 		$result = $this->input->post('MGITresult');
-		$specimenCode = $this->input->post('specCode');
 
 		$data1 = array(
 			'SpecimenCode' => $specimenCode,

@@ -21,7 +21,8 @@ class SputumCollection_Model extends CI_Model
         $currentdate = date('Y-m-d H:i:s');
         $data = array(
             'TransactionListID' => '1',
-            'EmployeeID' => $employeeID
+			'EmployeeID' => $employeeID,
+			'RelevantInfo' => $patientID
         );
 		$this->db->insert('transactionlog', $data);
 		
@@ -36,7 +37,7 @@ class SputumCollection_Model extends CI_Model
 		//get sputumrequestid with passed patient id
 		//bug expected, since patient can have alot of sputumrequests, when you use patientID to find sputumrequestID, alot of rows may be returned, for now i limited the sputum request to 1 per patient
 		$query1 = $this->db->query("SELECT * FROM SputumRequestLog WHERE PatientID = '$patientID'");
-		$sputumRequestID = 17;
+		$sputumRequestID = 1;
 		if ($query1->num_rows() > 0){
 			$row = $query1->row();
 			$sputumRequestID = $row->SputumRequestID;
@@ -65,3 +66,5 @@ class SputumCollection_Model extends CI_Model
 	}
 }	
 ?>
+
+

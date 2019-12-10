@@ -46,7 +46,8 @@ class SpecimenCodeAssign_Model extends CI_Model
 		$employeeID = $this->session->userdata('userID');
         $data = array(
             'TransactionListID' => '2',
-            'EmployeeID' => $employeeID
+			'EmployeeID' => $employeeID,
+			'RelevantInfo' => $search
         );
 		$this->db->insert('transactionlog', $data);
 		

@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="text-center">Drug Susceptibility Test</h1>
+                    <h1 class="text-center">Final Culture Result</h1>
                 </div>
             </div>
 
@@ -60,28 +60,42 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
+            <form method="POST" action="<?php echo base_url(); ?>FinalCultureResult/add">
+            <?php if($mgitResult == "positive" || $ljResult == "positive"){ ?>
+                <div class="row">
                 <div class="col-md-2 offset-md-3">
-                    <input class="btn btn-primary" type="radio" name="finalcultureResult">NEGATIVE</input>
+                    <input class="btn btn-primary" type="radio" name="finalcultureResult" value="No Mycobacterium tuberculosis complex isolated" disabled>NEGATIVE </input>
                 </div>
                 <div class="col-md-2 offset-md-1">
-                    <input class="btn btn-primary" type="radio" name="finalcultureResult">POSITIVE</input>
+                    <input class="btn btn-primary" type="radio" name="finalcultureResult" value="Positive for Mycobacterium tuberculosis complex" required>POSITIVE</input>
                 </div>
-            </div>
-
+                </div>                
+            <?php }else{ ?>
+                <div class="row">
+                <div class="col-md-2 offset-md-3">
+                    <input class="btn btn-primary" type="radio" name="finalcultureResult" value="No Mycobacterium tuberculosis complex isolated" required>NEGATIVE</input>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <input class="btn btn-primary" type="radio" name="finalcultureResult" value="Positive for Mycobacterium tuberculosis complex">POSITIVE</input>
+                </div>
+                </div>
+            <?php } ?>
+                
+            <input type="hidden" name="patientID" value="<?php echo $patientID; ?>">
+            <input type="hidden" name="specCode" value="<?php echo $specimenCode; ?>">
             <div class="row">
                 <div class="col-md-3 offset-md-3">
                     <p>Date Reported:&nbsp;</p>
                 </div>
-                <div class="col"><input type="date"></div>
+                <div class="col"><input type="date" name="dateReported" required></div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <div class="btn-group" role="group" style="margin-left: 330px;padding: 0px;"><button class="btn btn-primary" type="button">SAVE</button><button class="btn btn-primary" type="button">CANCEL</button><button class="btn btn-primary" type="button">CLEAR</button></div>
+                    <div class="btn-group" role="group" style="margin-left: 330px;padding: 0px;"><input class="btn btn-primary" type="submit" value="ADD"><button class="btn btn-primary" type="button">CLEAR</button></div>
                 </div>
             </div>
+            </form>
 
         </div>
     </div>

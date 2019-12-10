@@ -30,6 +30,18 @@ class PulmonaryEvaluation_Model extends CI_Model
         return $query->result();
     }
 
+    public function getScheds($dates){
+		$x = 0;
+		foreach($dates as $date){
+			$query1 = $this->db->query("SELECT COUNT(SputumCollectionID) AS NumberOfScheduled FROM sputumcollectionschedulelog WHERE CollectionStartDate = '$date'");
+			$temp = $query1->row();
+			$result[$x] = $temp->NumberOfScheduled;
+			$x++;
+		}
+
+		return $result;
+	}
+
     public function setScheduleDate($date, $time, $sputumCollectionID){
         //how to record this in log
         $employeeID = $this->session->userdata('userID');
@@ -37,7 +49,7 @@ class PulmonaryEvaluation_Model extends CI_Model
         $data = array(
             'TransactionListID' => '3',
             'EmployeeID' => $employeeID,
-            'DateTimeOfTransaction' => $currentdate
+            'RelevantInfo' => $sputumCollectionID
         );
         $this->db->insert('transactionlog', $data);
 

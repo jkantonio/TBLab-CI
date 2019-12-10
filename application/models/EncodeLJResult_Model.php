@@ -17,10 +17,13 @@ class EncodeLJResult_Model extends CI_Model
 
 	public function inputData(){
 		//updating the transaction log
+		
+		$specimenCode = $this->input->post('specCode');
 		$employeeID = $this->session->userdata('userID');
 		$data = array(
 			'TransactionListID' => '7',
-			'EmployeeID' => $employeeID
+			'EmployeeID' => $employeeID,
+			'RelevantInfo' => $specimenCode
 		);
 		$this->db->insert('transactionlog', $data);
 		

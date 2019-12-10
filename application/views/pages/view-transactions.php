@@ -30,6 +30,7 @@
                 <th>Transaction ID</th>
                 <th>Employee ID</th>
                 <th>Action</th>
+                <th>Relevant Information</th>
                 <th>Date and Time of Transaction</th>
             </tr>
         </thead>
@@ -39,6 +40,7 @@
                 <td><?php echo $tran->TransactionLogID ?></td>
                 <td><?php echo $tran->EmployeeID ?></td>
                 <td><?php echo $tran->TransactionName ?></td>
+                <td><?php echo $tran->RelevantInfo ?></td>
                 <td><?php echo $tran->DateTimeOfTransaction ?></td>
             </tr>
             <?php } ?>
