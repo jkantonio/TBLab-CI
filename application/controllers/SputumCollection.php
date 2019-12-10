@@ -27,7 +27,7 @@ class SputumCollection extends CI_controller
 		$data['reqBy'] = $row['RequestedBy'];
 		$data['$embassy'] = $row['Embassy'];
 		$data['dateSR'] = $row['DateOfSputumRequest'];
-		$data['priv'] = $this->session->userdata('userID');
+		$data['priv'] = $this->session->userdata('privilage');
 		$data['userID'] = $this->session->userdata('userID');
 		$data['pdfLink'] = 'storage/tcpdf_example.pdf';
 		//call a model function with input

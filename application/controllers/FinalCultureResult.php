@@ -114,6 +114,26 @@ Applicant Signature                 Lab Representative</div>
     // Print text using writeHTMLCell()
     $pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$html.'</pre>', 0, 1, 0, true, 'C', true);   
   
+	
+$tbl = <<<EOD
+<table cellspacing="0" cellpadding="1" border="1">
+    <tr>
+        <td rowspan="3">COL 1 - ROW 1<br />COLSPAN 3<br />text line<br />text line<br />text line<br />text line<br />text line<br />text line</td>
+        <td>COL 2 - ROW 1</td>
+        <td>COL 3 - ROW 1</td>
+    </tr>
+    <tr>
+        <td rowspan="2">COL 2 - ROW 2 - COLSPAN 2<br />text line<br />text line<br />text line<br />text line</td>
+         <td>COL 3 - ROW 2<br />text line<br />text line</td>
+    </tr>
+    <tr>
+       <td>COL 3 - ROW 3</td>
+    </tr>
+
+</table>
+EOD;
+
+$pdf->writeHTML($tbl, true, false, false, false, '');
     // ---------------------------------------------------------    
   
     // Close and output PDF document
