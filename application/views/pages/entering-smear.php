@@ -37,14 +37,14 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12 col-lg-6 offset-lg-4">
+                <div class="col-md-12 col-lg-6 offset-lg-3">
                     <p>Patient ID: <?php echo $patientID;?></p>
                     <p>Specimen Code: <?php echo $specimenCode; ?></p>
                     <?php $patientIDtemp = $patientID; ?>
-            </div>
+                </div>
     <form method="POST" action="<?php echo base_url(); ?>EnteringSmear/add">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-10 offset-md-10">
                     <input class="btn btn-primary" type="radio" name="smear" value="Negative" style="margin: 5px;"> 0</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="1 AFB/100 fields" style="margin: 5px;">+1</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="2 AFB/100 fields" style="margin: 5px;">+2</input>
@@ -56,7 +56,7 @@
             <input type="hidden" name="patientID" value="<?php echo $patientIDtemp; ?>">
             <input type="hidden" name="specCode" value="<?php echo $specimenCode; ?>">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-9 offset-md-10">
                     <input class="btn btn-primary" type="radio" name="smear" value="6 AFB/100 fields" style="margin: 5px;">+6</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="7 AFB/100 fields" style="margin: 5px;">+7</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="8 AFB/100 fields" style="margin: 5px;">+8</input>
@@ -65,7 +65,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-9 offset-md-10">
                     <input class="btn btn-primary" type="radio" name="smear" value="Positive (1+)" style="margin: 5px;">1+</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="Positive (2+)" style="margin: 5px;">2+</input>
                     <input class="btn btn-primary" type="radio" name="smear" value="Positive (3+)" style="margin: 5px;">3+</input>
@@ -73,24 +73,21 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4 offset-md-0" style="margin-top: 30px; margin-left: 70px">
+                <div class="col-md-9 offset-md-10" style="margin-top: 30px; margin-left: 180px;">
                     <p class="text-right">Smear Result Date:&nbsp;</p>
                 </div>
 
-                <div class="col">
-                    <input type="date" name="dateProc" style="margin-top: 0px;">
+                <div class="col-md-9 offset-md-10">
+                    <input type="date" name="dateProc" style="margin-top: 10px; position: absolute; bottom: 15px; right: 10px">
                 </div>
 
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <input class="btn btn-primary text-center" type="submit" value="Submit" style="margin-left: 269px;">
+                <div class="col-md-9 offset-md-10">
+                    <input class="btn btn-primary text-center" type="submit" value="Submit" style="margin-left: 269px; position: absolute; bottom: 10px">
                 </div>
     </form>
-                <div class="col">
-                    <button class="btn btn-primary" type="button" style="margin-left: -220px; margin-top: 5px">Cancel</button>
-                </div>
             </div>
             
         </div>

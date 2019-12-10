@@ -33,17 +33,17 @@
             </div>
             <div class="row">
                 <form method="post">
-                <div class="col-md-12">
-                    <h1>Specimen Code:&nbsp;</h1>
-                        <input type="text" style="width: 220px;height: 32px;" name="specimenCode" required>
-                        <input class="btn btn-primary btn-sm" type="submit" value="Search" style="margin-top: -6px;margin-left: 8px;"></input>
+                <div class="col-md-12 offset-md-8">
+                    <h2>Specimen Code:&nbsp;</h2>
+                        <input type="text" style="width: 220px; height: 32px; margin-left: 250px; position: absolute; top: 4px" name="specimenCode" required>
+                        <input class="btn btn-primary btn-sm" type="submit" value="Search" style="margin-top: -6px;margin-left: 480px; position: absolute; top: 12px"></input>
                     
-                    <h3>Specimen Code: <?php echo $specimenCode; ?></h3>
-                    <h3>Patient ID: <?php echo $patientID; ?></h3>
+                    <p>Specimen Code: <?php echo $specimenCode; ?></p>
+                    <p>Patient ID: <?php echo $patientID; ?></p>
                 </div>
                 </form>
             </div>
-<form method ="post" action="<?php echo base_url(); ?>EncodeMGITResult/add">
+        <form method ="post" action="<?php echo base_url(); ?>EncodeMGITResult/add">
             <div class="row">
                 <div class="col-md-2 offset-md-3">
                     <input class="btn btn-primary" type="radio" name="MGITresult" value="negative" required>Negative</input>
@@ -64,20 +64,19 @@
             <input type="hidden" value="<?php echo $specimenCode; ?>" name="specCode">
 
             <div class="row">
-                <div class="col-md-3 offset-md-3">
+                <div class="col-md-3 offset-md-3" style="margin-top: 20px">
                     <p>Date Reported:&nbsp;</p>
                 </div>
-                <div class="col">
+                <div class="col" style="margin-top: 15px; left: -150px">
                     <input type="date" name="dateReported" required></input>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <div class="btn-group" role="group" style="margin-left: 330px;padding: 0px;">
+                    <div class="btn btn-primary" role="group" style="margin-left: 330px;padding: 0px; position: absolute; left: 230px; bottom: 10px">
                         <input class="btn btn-primary" type="submit" value="SAVE">
-                        <button class="btn btn-primary" type="button">CANCEL</button>
-                        <button class="btn btn-primary" type="button">CLEAR</button></div>
+                    </div>
                 </div>
             </div>
 </form>

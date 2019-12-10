@@ -128,7 +128,9 @@ $pdf->writeHTML($tbl, true, false, false, false, '');
 	
 
 $row = $this->FinalCultureResult_Model->getEmp();
-	$employee = "<div><div>".$row->UserFirstName." ".$row->UserLastName."</div></div>".$row->UserProfession."</div></div>".$row->UserLicenseNumber."</div></div>";
+	$employee = "
+	__________________________
+	<div></div>".$row->UserFirstName." ".$row->UserLastName."</div></div>".$row->UserProfession."</div></div>".$row->UserLicenseNumber."</div></div>";
 	$pdf->writeHTMLCell(0, 0, '', '', '<pre>'.$employee.'</pre>', 0, 1, 0, true, 'C', true); 
 
 
@@ -140,7 +142,7 @@ $row = $this->FinalCultureResult_Model->getEmp();
   
     // Close and output PDF document
     // This method has several options, check the source code documentation for more information.
-    $pdf->Output("FinalCultureResult-new", 'I');
+    $pdf->Output("FinalCultureResult-new", 'D');
 	exit();  
   
 
