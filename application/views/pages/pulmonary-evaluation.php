@@ -41,6 +41,8 @@
                     </form>
             </div>
             <?php $sputumCollectionIDTemp=0;
+            $patientNameHidden = " ";
+            $patientIDHidden = 0;
             foreach($results as $result){?>
             <div class="row">
                 <div class="col-md-12 col-lg-2 offset-lg-4">
@@ -63,6 +65,8 @@
                         <?php 
                         $patientNameHidden = $result->PatientFirstName. " " .$result->PatientMiddleName." ".$result->PatientLastName;
                         ?>
+
+                        <?php $patientIDHidden = $result->PatientID; ?>
                     </p>
                 </div>
             </div>
@@ -98,7 +102,6 @@
                 </div>
             </div>
             <?php // Gets patient id in hidden form to pass to function ?>
-            <?php $patientIDHidden = $result->PatientID; ?>
             <input type="hidden"  name="patientFullName" value="<?php echo $patientNameHidden;?>">
             <input type="hidden" name="patientID" value="<?php echo $patientIDHidden;?>">
             <div class="row">
@@ -108,6 +111,9 @@
             </div>
             </form>
         </div>
+
+        <!--
+
         <div class="col-md-6">
                     <div class="table-responsive">
                         <table class="table">
@@ -134,6 +140,8 @@
                         </table>
                     </div>
                 </div>
+
+            -->
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
